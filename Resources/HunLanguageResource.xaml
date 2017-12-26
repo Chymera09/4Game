@@ -1,0 +1,57 @@
+﻿<ResourceDictionary 
+        xmlns ="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--Main window-->
+    <system:String x:Key="newgame">Új játék</system:String>
+    <system:String x:Key="numberofplayers">Válassza ki a játékosok számát!</system:String>
+    <system:String x:Key="2players"> 2 játékos</system:String>
+    <system:String x:Key="3players">3 játékos</system:String>
+    <system:String x:Key="4players">4 játékos</system:String>
+    <system:String x:Key="1playersname">1. játékos neve:</system:String>
+    <system:String x:Key="player1">1. játékos</system:String>
+    <system:String x:Key="2playersname">2. játékos neve:</system:String>
+    <system:String x:Key="player2">2. játékos</system:String>
+    <system:String x:Key="3playersname">3. játékos neve:</system:String>
+    <system:String x:Key="player3">3. játékos</system:String>
+    <system:String x:Key="4playersname">4. játékos neve:</system:String>
+    <system:String x:Key="player4">4. játékos</system:String>
+    <system:String x:Key="boardsize">Adja meg a tábla méretét!</system:String>
+    <system:String x:Key="rownumber">Sorok száma:</system:String>
+    <system:String x:Key="columnnumber">Oszlopok száma:</system:String>
+    <system:String x:Key="start">Indítás</system:String>
+    <system:String x:Key="settings">Beállítások</system:String>
+    <system:String x:Key="exit">Kilépés</system:String>
+    <system:String x:Key="randomnames">Random névsor</system:String>
+    <system:String x:Key="color">Szín:</system:String>
+
+    <system:String x:Key="pickcolor">Válasszon színt</system:String>
+
+    <!--Settings window-->
+    <system:String x:Key="apply">Elfogad</system:String>
+    <system:String x:Key="default">Alapértelmezett</system:String>
+    <system:String x:Key="cancel">Mégsem</system:String>
+    <system:String x:Key="diagonal">Átlós szomszédok</system:String>
+    <system:String x:Key="maxvalue">Max mező kattintás</system:String>
+
+    <!--4game window-->
+    <system:String x:Key="load">Betöltés</system:String>
+    <system:String x:Key="save">Mentés</system:String>
+
+    <!--ResultWindow-->
+    <system:String x:Key="resultlist">Eredmény</system:String>
+    <system:String x:Key="close">Bezárás</system:String>
+
+    <!--New game warning window--><!--
+    <system:String x:Key="newgamewarning">Új játék indítása esetén a mentetlen állás elveszik.</system:String>
+    <system:String x:Key="newgamewithoutsave">Új játék mentés nélkül</system:String>
+    <system:String x:Key="newgamewithsave">Mentés és új játék</system:String>
+    <system:String x:Key="cancel">Mégsem</system:String>
+
+    --><!--Exit game warning window--><!--
+    <system:String x:Key="exitwarning">Kilépés esetén a mentetlen állás elveszik.</system:String>
+    <system:String x:Key="exitwithoutsave">Kilépés mentés nélkül</system:String>
+    <system:String x:Key="exitwithsave">Mentés és kilépés</system:String>-->
+
+
+</ResourceDictionary>

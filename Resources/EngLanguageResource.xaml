@@ -1,0 +1,59 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!--Main window-->
+    <system:String x:Key="newgame">New game</system:String>
+    <system:String x:Key="numberofplayers">Select the number of players</system:String>
+    <system:String x:Key="2players">2 players</system:String>
+    <system:String x:Key="3players">3 players</system:String>
+    <system:String x:Key="4players">4 players</system:String>
+    <system:String x:Key="1playersname">1st player's name:</system:String>
+    <system:String x:Key="player1">Player1</system:String>
+    <system:String x:Key="2playersname">2nd player's name:</system:String>
+    <system:String x:Key="player2">Player2</system:String>
+    <system:String x:Key="3playersname">3rd player's name:</system:String>
+    <system:String x:Key="player3">Player3</system:String>
+    <system:String x:Key="4playersname">4th player's name:</system:String>
+    <system:String x:Key="player4">Player4</system:String>
+    <system:String x:Key="boardsize">Enter the size of the board</system:String>
+    <system:String x:Key="rownumber">Number of rows:</system:String>
+    <system:String x:Key="columnnumber">Number of columns:</system:String>
+    <system:String x:Key="start">Start</system:String>
+    <system:String x:Key="settings">Settings</system:String>
+    <system:String x:Key="exit">Exit</system:String>
+    <system:String x:Key="randomnames">Random namelist</system:String>
+    <system:String x:Key="color">Color:</system:String>
+
+    <system:String x:Key="pickcolor">Pick a color</system:String>
+
+    <!--Settings window-->
+    <system:String x:Key="apply">Apply</system:String>
+    <system:String x:Key="default">Default</system:String>
+    <system:String x:Key="cancel">Cancel</system:String>
+    <system:String x:Key="diagonal">Diagonal neighbours</system:String>
+    <system:String x:Key="maxvalue">Max value button click</system:String>
+    
+    <!--4game window-->
+    <system:String x:Key="load">Load</system:String>
+    <system:String x:Key="save">Save</system:String>
+
+    <!--ResultWindow-->
+    <system:String x:Key="resultlist">Result</system:String>
+    <system:String x:Key="close">Close</system:String>
+
+    
+
+    <!--New game warning window-->
+    <!--<system:String x:Key="newgamewarning">If you start new game, the unsaved game will be lost.</system:String>
+    <system:String x:Key="newgamewithoutsave">New game without save</system:String>
+    <system:String x:Key="newgamewithsave">Save and new game</system:String>-->
+    
+
+    <!--Exit game warning window--><!--
+    <system:String x:Key="exitwarning">If you close the game, the unsaved game will be lost.</system:String>
+    <system:String x:Key="exitwithoutsave">Exit without save</system:String>
+    <system:String x:Key="exitwithsave">Save and Exit</system:String>-->
+
+
+
+</ResourceDictionary>

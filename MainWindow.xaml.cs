@@ -23,6 +23,7 @@ namespace _4Game
         public MainWindow()
         {
             InitializeComponent();
+            this.Content = new Pages.MainSurface();
         }
     }
 }
