@@ -18,6 +18,7 @@
     <system:String x:Key="boardsize">Enter the size of the board</system:String>
     <system:String x:Key="rownumber">Number of rows:</system:String>
     <system:String x:Key="columnnumber">Number of columns:</system:String>
+    <system:String x:Key="random">Random</system:String>
     <system:String x:Key="start">Start</system:String>
     <system:String x:Key="settings">Settings</system:String>
     <system:String x:Key="exit">Exit</system:String>

@@ -8,7 +8,7 @@
         <Setter Property="FontFamily"
                 Value="Tempus Sans ITC"/>
         <Setter Property="FontSize"
-                Value="12"/>
+                Value="10"/>
         <Setter Property="FontWeight"
                 Value="Bold"/>
         <Setter Property="HorizontalContentAlignment"
@@ -23,7 +23,7 @@
         <Setter Property="FontFamily"
                 Value="Tempus Sans ITC"/>
         <Setter Property="FontSize"
-                Value="12"/>
+                Value="10"/>
         <Setter Property="FontWeight"
                 Value="Bold"/>
         <Setter Property="HorizontalContentAlignment"
@@ -80,13 +80,15 @@
         </Setter>
     </Style>
 
+    
+    
     <Style TargetType="{x:Type Button}">
         <Setter Property="Foreground"
                 Value="Orange" />
         <Setter Property="FontFamily"
                 Value="Tempus Sans ITC" />
         <Setter Property="FontSize"
-                Value="12" />
+                Value="8" />
         <Setter Property="Background">
             <Setter.Value>
                 <RadialGradientBrush>
@@ -134,7 +136,7 @@
                             <Setter Property="Foreground"
                                     Value="White" />
                             <Setter Property="FontSize"
-                                    Value="15" />
+                                    Value="11" />
                             <Setter Property="Rectangle.Fill"
                                     TargetName="Background">
                                 <Setter.Value>

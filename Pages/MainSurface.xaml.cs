@@ -34,6 +34,7 @@ namespace _4Game.Pages
         public MainSurface()
         {
             InitializeComponent();
+            this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
         }
 
     }

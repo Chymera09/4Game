@@ -19,6 +19,7 @@ xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="boardsize">Adja meg a tábla méretét!</system:String>
     <system:String x:Key="rownumber">Sorok száma:</system:String>
     <system:String x:Key="columnnumber">Oszlopok száma:</system:String>
+    <system:String x:Key="random">Random</system:String>
     <system:String x:Key="start">Indítás</system:String>
     <system:String x:Key="settings">Beállítások</system:String>
     <system:String x:Key="exit">Kilépés</system:String>
