@@ -8,23 +8,39 @@ using System.Windows;
 namespace _4Game
 {
     class Globalization
-    {        
-        public static ResourceDictionary SetLanguage(string language = "hu")
+    {
+        public static Language currentLanguage = Language.HUN;
+        public static ResourceDictionary SetLanguage()
+        {
+            ResourceDictionary dictionary = new ResourceDictionary();
+            switch (currentLanguage)
+            {
+                case Language.ENG:
+                    dictionary.Source = new Uri("/Resources/EngLanguageResource.xaml",
+                                  UriKind.Relative);                    
+                    break;
+                case Language.HUN:
+                    dictionary.Source = new Uri("/Resources/HunLanguageResource.xaml",
+                                      UriKind.Relative);
+                    break;
+            }
+            return dictionary;
+        }
+
+        public static ResourceDictionary SetLanguage(Language language)
         {
             ResourceDictionary dictionary = new ResourceDictionary();
             switch (language)
             {
-                case "en":
+                case Language.ENG:
                     dictionary.Source = new Uri("/Resources/EngLanguageResource.xaml",
                                   UriKind.Relative);
+                    currentLanguage = Language.ENG;
                     break;
-                case "hu":
+                case Language.HUN:
                     dictionary.Source = new Uri("/Resources/HunLanguageResource.xaml",
                                       UriKind.Relative);
-                    break;
-                default:
-                    dictionary.Source = new Uri("/Resources/HunLanguageResource.xaml",
-                                      UriKind.Relative);
+                    currentLanguage = Language.ENG;
                     break;
             }
             return dictionary;

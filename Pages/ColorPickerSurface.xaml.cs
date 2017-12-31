@@ -16,26 +16,28 @@ using System.Windows.Shapes;
 namespace _4Game.Pages
 {
     /// <summary>
-    /// Interaction logic for MainSurface.xaml
+    /// Interaction logic for ColorPickerSurface.xaml
     /// </summary>
-    public partial class MainSurface : UserControl
+    public partial class ColorPickerSurface : Window
     {
-        public static bool maxValueButtonClick = true;
-        //internal _4GameLogic table;
-        internal Player player1;
-        internal Player player2;
-        internal Player player3;
-        internal Player player4;
-        private const int MAXVALUE = 4;
-        private int maxScore;
-        private int fontSize;
-        public byte row, column;
-
-        public MainSurface()
+        private Label sender;
+        public ColorPickerSurface(object sender)
         {
             InitializeComponent();
             this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
+            this.sender = (Label)sender;
         }
 
+        private void Color_Click(object sender, RoutedEventArgs e)
+        {
+            Label label = (Label)sender;
+            NewGameSurface.setColor(this.sender, Convert.ToByte(label.Tag));
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
