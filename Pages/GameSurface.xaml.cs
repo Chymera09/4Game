@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _4Game
+namespace _4Game.Pages
 {
     /// <summary>
-    /// Interaction logic for PrimaryWindow.xaml
+    /// Interaction logic for GameSurface.xaml
     /// </summary>
-    public partial class PrimaryWindow : Window
+    public partial class GameSurface : UserControl
     {
-        public PrimaryWindow()
+        public GameSurface()
         {
             InitializeComponent();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

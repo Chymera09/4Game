@@ -10,23 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _4Game
+namespace _4Game.WarningSurfaces
 {
     /// <summary>
-    /// Interaction logic for PrimaryWindow.xaml
+    /// Interaction logic for NumberNotInRangeWarning.xaml
     /// </summary>
-    public partial class PrimaryWindow : Window
+    public partial class NumberNotInRangeWarning : UserControl
     {
-        public PrimaryWindow()
+        public NumberNotInRangeWarning()
         {
             InitializeComponent();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            WindowController.closeSecondaryWindow();
         }
     }
 }

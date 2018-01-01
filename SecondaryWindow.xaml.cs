@@ -15,18 +15,14 @@ using System.Windows.Shapes;
 namespace _4Game
 {
     /// <summary>
-    /// Interaction logic for PrimaryWindow.xaml
+    /// Interaction logic for SecondaryWindow.xaml
     /// </summary>
-    public partial class PrimaryWindow : Window
+    public partial class SecondaryWindow : Window
     {
-        public PrimaryWindow()
+        public SecondaryWindow()
         {
             InitializeComponent();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
+            this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
         }
     }
 }

@@ -25,7 +25,8 @@ namespace _4Game.Pages
             this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
 
             btn2Players_Click(this, null);
-            setColor(lblColor1);
+            //setColor(lblColor1);
+            setColor(lblColor1, "#FFDFD991");
             setColor(lblColor2);
         }
 
@@ -107,10 +108,16 @@ namespace _4Game.Pages
                                                    ColorPalette.colors[color, 1], ColorPalette.colors[color, 2]));            
         }
 
+        private void setColor(Label lblColor, string color = "#FFDFD991")
+        {
+            lblColor.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFDFD991"));
+        }
+
         public static void setColor(Label sender, Byte color)
         {
             sender.Background = new SolidColorBrush(Color.FromArgb(ColorPalette.alpha, ColorPalette.colors[color, 0],
                                                    ColorPalette.colors[color, 1], ColorPalette.colors[color, 2]));
+            sender.Tag = color.ToString();
         }
 
         private void imgHunFlag_MouseUp(object sender, MouseButtonEventArgs e)
@@ -161,7 +168,7 @@ namespace _4Game.Pages
         }
         private void ColorPicker_Click(object sender, MouseButtonEventArgs e)
         {
-            WindowController.openColorPicker(sender);
+            WindowController.showColorPicker(sender);
         }
 
         private void btnRandom1_Click(object sender, RoutedEventArgs e)
@@ -172,6 +179,45 @@ namespace _4Game.Pages
         private void btnRandom2_Click(object sender, RoutedEventArgs e)
         {
             tbRowNumber.Text = Random.getRandom().ToString();
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            WindowController.closePrimaryWindow();
+            Application.Current.Shutdown();
+        }
+
+        private void tbTableSize_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            byte size = Convert.ToByte(tb.Text);
+
+            if (size < Constants.MINTABLESIZE)
+            {
+                WindowController.showNumberOutOfRangeWarning();
+                tb.Text = "2";
+            }
+
+            if (size > Constants.MAXTABLESIZE)
+            {
+                WindowController.showNumberOutOfRangeWarning();
+                tb.Text = "30";
+            }
         }
     }
 }

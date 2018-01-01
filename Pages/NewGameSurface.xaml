@@ -6,235 +6,172 @@
              xmlns:local="clr-namespace:_4Game.Pages"
              mc:Ignorable="d"
              d:DesignHeight="355" d:DesignWidth="510" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-    <Grid Background="Black">
+    <Viewbox>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="185*"/>
-            <ColumnDefinition Width="40*"/>
-            <ColumnDefinition Width="85*"/>
-            <ColumnDefinition Width="180*"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="49*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="130*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--NewGame label-->
-        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4">
-        <Label Name="lblNewGame" Content="{DynamicResource newgame}" FontSize="20"  Height="35"
-               HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        </Viewbox>
+        <Label Name="lblNewGame" Content="{DynamicResource newgame}" FontSize="20" Height="40" Width="490"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Margin="0,0,0,315" />
+
 
         <!--Players number and language row-->
-        <Viewbox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" Margin="0,0,0,0">
-            <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="458" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="60*"/>
-                    <ColumnDefinition Width="105*"/>
-                    <ColumnDefinition Width="30*"/>
-                    <ColumnDefinition Width="5*"/>
-                    <ColumnDefinition Width="30*"/>
-                </Grid.ColumnDefinitions>
-                <Label Content="{DynamicResource numberofplayers}" Height="25" Width="100"
-                   HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5,0,0,0"/>
-                <ToggleButton Name="btn2Players" Content="{DynamicResource 2players}" Height="25" Width="50" 
-                    HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="1" Margin="10,0,10,0" Click="btn2Players_Click"/>
-                <ToggleButton Name="btn3Players" Content="{DynamicResource 3players}" Height="25" Width="50" 
-                    HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="2" Margin="10,0,10,0" Click="btn3Players_Click"/>
-                <ToggleButton Name="btn4Players" Content="{DynamicResource 4players}" Height="25" Width="50" 
-                    HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.Column="3" Margin="10,0,0,0" Click="btn4Players_Click"/>
 
-                <Image x:Name="imgHunFlag"  Source="/Resources/hunflag.jpg" Height="15" Width="30"
-               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="5"  Grid.Row="0" Margin="0, 5, 0, 5" MouseUp="imgHunFlag_MouseUp"/>
-                <Image x:Name="imgEngFlag"  Source="/Resources/engflag.jpg" Height="15" Width="30"
-               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="7"  Grid.Row="0" Margin="0, 5, 0, 5" MouseUp="imgEngFlag_MouseUp"/>
-               
-            </Grid>
-        </Viewbox>
+        <DockPanel Grid.Column="1" HorizontalAlignment="Left" Height="25" LastChildFill="False" VerticalAlignment="Top" Width="490" Margin="0,55,0,0">
+
+            <Label Content="{DynamicResource numberofplayers}" Height="25" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <Separator Width="20" Background="Transparent"/>
+
+            <ToggleButton Name="btn2Players" Content="{DynamicResource 2players}" Height="25" Width="50" Click="btn2Players_Click"/>
+
+            <Separator Width="10" Background="Transparent"/>
+
+            <ToggleButton Name="btn3Players" Content="{DynamicResource 3players}" Height="25" Width="50" Click="btn3Players_Click"/>
+
+            <Separator Width="10" Background="Transparent"/>
+
+            <ToggleButton Name="btn4Players" Content="{DynamicResource 4players}" Height="25" Width="50" Click="btn4Players_Click"/>
+
+            <Separator Width="85" Background="Transparent"/>
+
+            <Image x:Name="imgHunFlag"  Source="/Resources/hunflag.jpg" Height="15" Width="30" MouseUp="imgHunFlag_MouseUp"/>
+
+            <Separator Width="5" Background="Transparent"/>
+
+            <Image x:Name="imgEngFlag"  Source="/Resources/engflag.jpg" Height="15" Width="30" MouseUp="imgEngFlag_MouseUp"/>
+        </DockPanel>
+
         <!--Players data-->
-        <Viewbox  Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Margin="0,0,3,0">
-            <Grid  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Width="310" Height="130" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="35*"/>
-                    <RowDefinition Height="35*"/>
-                    <RowDefinition Height="30*"/>
-                </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" Height="125" Margin="0,85,0,0" VerticalAlignment="Top" Width="310" Grid.Column="1">
+            <!--Player 1-->
+            <DockPanel Height="25" LastChildFill="False" Width="310">
 
-                <!--Player 1-->
-                <Grid Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,5" VerticalAlignment="Stretch" Width="310" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="110*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="40*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Name="lblPlayer1" Content="{DynamicResource 1playersname}"
-                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0"/>
-                    <TextBox Name="tbName1" Text="{DynamicResource player1}" MaxLength="50" MaxLines="1"
-                         HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"
+                <Label Name="lblPlayer1" Content="{DynamicResource 1playersname}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <TextBox Name="tbName1" Text="{DynamicResource player1}" MaxLength="50" MaxLines="1" Height="25" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    <Label Name="lblColorText1" Content="{DynamicResource color}" Grid.Column="3" Width="40" Height="25"
-                       HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-                    <Label x:Name="lblColor1" Background="Yellow" Width="40" Height="15" Tag="1"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Margin="0,5,0,5" MouseLeftButtonUp="ColorPicker_Click"/>
-                </Grid>
 
-                <!--Player 2-->
-                <Grid Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Stretch" Width="310" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="110*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="40*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Name="lblPlayer2" Content="{DynamicResource 1playersname}"
-                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0"/>
-                    <TextBox Name="tbName2" Text="{DynamicResource player2}" MaxLength="50" MaxLines="1"
-                         HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"
+                <Separator Width="20" Background="Transparent" />
+
+                <Label Name="lblColorText1" Content="{DynamicResource color}" Height="25" Width="40" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <Label x:Name="lblColor1" Background="Yellow" Width="40" Height="10" Tag="1" MouseLeftButtonUp="ColorPicker_Click"/>
+            </DockPanel>
+
+            <Separator Height="5" Background="Transparent"/>
+
+            <!--Player 2-->
+            <DockPanel  Height="25" LastChildFill="False" Width="310">
+
+                <Label Name="lblPlayer2" Content="{DynamicResource 2playersname}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <TextBox Name="tbName2" Text="{DynamicResource player2}" MaxLength="50" MaxLines="1" Height="25" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    <Label Name="lblColorText2" Content="{DynamicResource color}" Grid.Column="3" Width="40" Height="25"
-                       HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-                    <Label x:Name="lblColor2" Background="Yellow" Width="40" Height="15" Tag="2"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Margin="0,5,0,5" MouseLeftButtonUp="ColorPicker_Click"/>
-                </Grid>
 
-                <!--Player 3 -->
-                <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Stretch" Width="310" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="110*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="40*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Name="lblPlayer3" Content="{DynamicResource 1playersname}"
-                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0"/>
-                    <TextBox Name="tbName3" Text="{DynamicResource player3}" MaxLength="50" MaxLines="1"
-                         HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"
+                <Separator Width="20" Background="Transparent" />
+
+                <Label Name="lblColorText2" Content="{DynamicResource color}" Height="25" Width="40" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <Label x:Name="lblColor2" Background="Yellow" Width="40" Height="10" Tag="2" MouseLeftButtonUp="ColorPicker_Click"/>
+            </DockPanel>
+
+            <Separator Height="5" Background="Transparent"/>
+
+            <!--Player 3-->
+            <DockPanel Height="25" LastChildFill="False" Width="310">
+
+                <Label Name="lblPlayer3" Content="{DynamicResource 3playersname}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <TextBox Name="tbName3" Text="{DynamicResource player3}" MaxLength="50" MaxLines="1" Height="25" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    <Label Name="lblColorText3" Content="{DynamicResource color}" Grid.Column="3" Width="40" Height="25"
-                       HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-                    <Label x:Name="lblColor3" Background="Yellow" Width="40" Height="15" Tag="3"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Margin="0,5,0,5" MouseLeftButtonUp="ColorPicker_Click"/>
-                </Grid>
 
-                <!--Player 4-->
-                <Grid Grid.Column="0" Grid.Row="3" HorizontalAlignment="Stretch" Margin="0,5,0,5" VerticalAlignment="Stretch" Width="310" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="110*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="40*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Name="lblPlayer4" Content="{DynamicResource 1playersname}"
-                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="0"/>
-                    <TextBox Name="tbName4" Text="{DynamicResource player4}" MaxLength="50" MaxLines="1"
-                         HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1"
+                <Separator Width="20" Background="Transparent" />
+
+                <Label Name="lblColorText3" Content="{DynamicResource color}" Height="25" Width="40" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <Label x:Name="lblColor3" Background="Yellow" Width="40" Height="10" Tag="3" MouseLeftButtonUp="ColorPicker_Click"/>
+            </DockPanel>
+
+            <Separator Height="5" Background="Transparent"/>
+
+            <!--Player 4-->
+            <DockPanel Height="25" LastChildFill="False" Width="310" Grid.RowSpan="3">
+
+                <Label Name="lblPlayer4" Content="{DynamicResource 4playersname}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+
+                <TextBox Name="tbName4" Text="{DynamicResource player4}" MaxLength="50" MaxLines="1" Height="25" Width="110" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
                              GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    <Label Name="lblColorText4" Content="{DynamicResource color}" Grid.Column="3" Width="40" Height="25"
-                       HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
-                    <Label x:Name="lblColor4" Background="Yellow" Width="40" Height="15" Tag="4"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="4" Margin="0,5,0,5" MouseLeftButtonUp="ColorPicker_Click" />
-                </Grid>
-            </Grid>
-        </Viewbox>
 
+                <Separator Width="20" Background="Transparent" />
 
+                <Label Name="lblColorText4" Content="{DynamicResource color}" Height="25" Width="40" 
+                        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-
+                <Label x:Name="lblColor4" Background="Yellow" Width="40" Height="10" Tag="4" MouseLeftButtonUp="ColorPicker_Click"/>
+            </DockPanel>
+        </StackPanel>
 
         <!--Table size settings-->
-        <Viewbox Grid.Column="1" Grid.Row="7" Margin="0,1,0,0">
-            <Grid  Height="90" Width="185" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="30*"/>
-                    <RowDefinition Height="30*"/>
-                </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Margin="0,231,0,0" VerticalAlignment="Top" Height="85" Width="180">
 
-                <Label Content="{DynamicResource boardsize}" Height="30" Width="185" 
-				HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                Grid.Column="0" Grid.Row="0" />
+            <Label Content="{DynamicResource boardsize}" Height="25" Width="185" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Separator Height="5" Margin="0" Background="Transparent"/>
 
-                <Grid Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,0,5" Grid.Row="1" VerticalAlignment="Stretch" Width="185" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="25*"/>
-                        <ColumnDefinition Width="60*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="{DynamicResource columnnumber}" Height="25" Width="100"
-                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" 
-                         Grid.Column="0" Margin="0,0,0, 0"/>
-                    <TextBox x:Name="tbColumnNumber" Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"
-                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
-                         Grid.Column="1" Margin="1,0,0,0" PreviewTextInput="PreviewTextInput"
-                     GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    <!-- PreviewTextInput="PreviewTextInput"
-                     GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"-->
-                    <Button Name="btnRandom1" Content="{DynamicResource random}" Grid.Column="2"  Width="50" Height="25"
-                    Margin="10,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Click="btnRandom1_Click"/>
-                </Grid>
+            <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
 
-                <Grid Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="2" Width="185" Height="25">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="25*"/>
-                        <ColumnDefinition Width="60*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="{DynamicResource rownumber}" Height="25" Width="100" 
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"
-                           Grid.Column="0" Margin="0,0,0, 0"/>
-                    <TextBox x:Name="tbRowNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25" 
-                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
-                             Grid.Column="1" Margin="0, 0,0,0" PreviewTextInput="PreviewTextInput"
-                     GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp"/>
-                    
-                    <Button Name="btnRandom2" Content="{DynamicResource random}" Height="25" Width="50" 
-                     HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Column="2" Margin="10,0,0,0" Click="btnRandom2_Click"/>
-                </Grid>
-            </Grid>
-        </Viewbox>
+                <Label Content="{DynamicResource rownumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
+                <TextBox x:Name="tbColumnNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
+                             PreviewTextInput="PreviewTextInput" GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp" LostFocus="tbTableSize_LostFocus"/>
 
+                <Separator Width="5" Margin="0" Background="Transparent"/>
+
+                <Button Name="btnRandom1" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom1_Click"/>
+            </DockPanel>
+
+            <Separator Height="5" Margin="0" Background="Transparent"/>
+
+            <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
+
+                <Label Content="{DynamicResource rownumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                <TextBox x:Name="tbRowNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
+                             PreviewTextInput="PreviewTextInput" GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp" LostFocus="tbTableSize_LostFocus"/>
+
+                <Separator Width="5" Margin="0" Background="Transparent"/>
+
+                <Button Name="btnRandom2" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom2_Click"/>
+            </DockPanel>
+        </StackPanel>
 
         <!--Control buttons-->
-        <Viewbox Grid.Column="3" Grid.Row="8" Margin="0,0,0,0" Grid.ColumnSpan="2" >
-            <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60*"/>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="70*"/>
-                    <ColumnDefinition Width="60*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnStart" Content="{DynamicResource start}" Height="25" Width="50" 
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,10,0" Grid.Column="0" />
+        <DockPanel Grid.Column="1" HorizontalAlignment="Left" Height="25" LastChildFill="False" Margin="260,320,0,0" VerticalAlignment="Top" Width="230">
 
-                <Button x:Name="btnLoad" Content="{DynamicResource load}" Height="25" Width="50"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,10,0" Grid.Column="1" />
+            <Button x:Name="btnStart" Content="{DynamicResource start}" Height="25" Width="50" Click="btnStart_Click"/>
 
-                <Button x:Name="btnSettings" Content="{DynamicResource settings}" Height="25" Width="50"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,10,0" Grid.Column="2" />
+            <Separator Width="10" Margin="0" Background="Transparent"/>
 
-                <Button x:Name="btnExit" Content="{DynamicResource exit}" Height="25" Width="50"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10, 0, 0, 0" Grid.Column="3" />
-            </Grid>
-        </Viewbox>
+            <Button x:Name="btnLoad" Content="{DynamicResource load}" Height="25" Width="50" Click="btnLoad_Click" />
+
+            <Separator Width="10" Margin="0" Background="Transparent"/>
+
+            <Button x:Name="btnSettings" Content="{DynamicResource settings}" Height="25" Width="50" Click="btnSettings_Click" />
+
+            <Separator Width="10" Margin="0" Background="Transparent"/>
+
+            <Button x:Name="btnExit" Content="{DynamicResource exit}" Height="25" Width="50" Click="btnExit_Click" />
+        </DockPanel>
     </Grid>
+    </Viewbox>
 </UserControl>

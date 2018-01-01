@@ -9,7 +9,8 @@ namespace _4Game
     public class WindowController
     {
         private static PrimaryWindow primaryWindow;
-        public static void openPrimaryWindow()
+        private static SecondaryWindow secondaryWindow;
+        public static void showPrimaryWindow()
         {
             primaryWindow = new PrimaryWindow();
             primaryWindow.Show();
@@ -25,10 +26,30 @@ namespace _4Game
             primaryWindow.Content = new Pages.NewGameSurface();
         }
 
-        public static void openColorPicker(object sender)
+        public static void showColorPicker(object sender)
         {
+            secondaryWindow = new SecondaryWindow();
             Pages.ColorPickerSurface colorPicker = new Pages.ColorPickerSurface(sender);
-            colorPicker.ShowDialog();
+            secondaryWindow.Content = colorPicker;
+            secondaryWindow.ShowDialog();
+        }
+
+        public static void showNumberOutOfRangeWarning()
+        {
+            secondaryWindow = new SecondaryWindow();
+            secondaryWindow.Content = new WarningSurfaces.NumberNotInRangeWarning();
+            secondaryWindow.ShowDialog();
+        }
+
+        public static void closeSecondaryWindow()
+        {
+            secondaryWindow.Close();
+            secondaryWindow = new SecondaryWindow();
+        }
+
+        public static void setGameSurface()
+        {
+            primaryWindow.Content = new Pages.GameSurface();
         }
     }
 }

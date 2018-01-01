@@ -18,13 +18,13 @@ namespace _4Game.Pages
     /// <summary>
     /// Interaction logic for ColorPickerSurface.xaml
     /// </summary>
-    public partial class ColorPickerSurface : Window
+    public partial class ColorPickerSurface : UserControl
     {
         private Label sender;
         public ColorPickerSurface(object sender)
         {
             InitializeComponent();
-            this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
+            //this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
             this.sender = (Label)sender;
         }
 
@@ -32,12 +32,12 @@ namespace _4Game.Pages
         {
             Label label = (Label)sender;
             NewGameSurface.setColor(this.sender, Convert.ToByte(label.Tag));
-            Close();
+            WindowController.closeSecondaryWindow();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            WindowController.closeSecondaryWindow();
         }
     }
 }

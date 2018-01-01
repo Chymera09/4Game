@@ -23,8 +23,9 @@ namespace _4Game
         public MainWindow()
         {
             InitializeComponent();
-            WindowController.openPrimaryWindow();
+            WindowController.showPrimaryWindow();
             WindowController.setNewGameSurface();
+            //WindowController.setGameSurface();
             Close();
         }
     }

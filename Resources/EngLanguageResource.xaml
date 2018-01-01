@@ -42,7 +42,9 @@
     <system:String x:Key="resultlist">Result</system:String>
     <system:String x:Key="close">Close</system:String>
 
-    
+    <!--Number range error-->
+    <system:String x:Key="numberoutofrange">Number out of the range! (2-30)</system:String>
+    <system:String x:Key="ok">OK!</system:String>
 
     <!--New game warning window-->
     <!--<system:String x:Key="newgamewarning">If you start new game, the unsaved game will be lost.</system:String>

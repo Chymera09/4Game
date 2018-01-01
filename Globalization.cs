@@ -40,7 +40,7 @@ namespace _4Game
                 case Language.HUN:
                     dictionary.Source = new Uri("/Resources/HunLanguageResource.xaml",
                                       UriKind.Relative);
-                    currentLanguage = Language.ENG;
+                    currentLanguage = Language.HUN;
                     break;
             }
             return dictionary;
