@@ -26,8 +26,8 @@ namespace _4Game.Pages
 
             btn2Players_Click(this, null);
             //setColor(lblColor1);
-            setColor(lblColor1, "#FFDFD991");
-            setColor(lblColor2);
+            //setColor(lblColor1, "#FFDFD991");
+            //setColor(lblColor2);
         }
 
         /* BETÖLTÉSHEZ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,12 +46,16 @@ namespace _4Game.Pages
             lblPlayer3.Foreground = Brushes.Black;
             tbName3.IsEnabled = false;
             lblColorText3.Foreground = Brushes.Black;
+            if (lblColor3.Background != Brushes.Black)
+                lblColor3.Tag = lblColor3.Background.ToString();            
             lblColor3.Background = Brushes.Black;
             lblColor3.IsEnabled = false;
 
             lblPlayer4.Foreground = Brushes.Black;
             tbName4.IsEnabled = false;
             lblColorText4.Foreground = Brushes.Black;
+            if (lblColor4.Background != Brushes.Black)
+                lblColor4.Tag = lblColor4.Background.ToString();
             lblColor4.Background = Brushes.Black;
             lblColor4.IsEnabled = false;
         }
@@ -63,18 +67,19 @@ namespace _4Game.Pages
             btn4Players.IsChecked = false;
 
             playerNumber = 3;
-            byte color = Convert.ToByte(lblColor3.Tag);
 
             lblPlayer3.Foreground = Brushes.Orange;
             tbName3.IsEnabled = true;
             lblColorText3.Foreground = Brushes.Orange;
             lblColor3.IsEnabled = true;
-            setColor(lblColor3);
+            setColorFromTag(lblColor3);
 
             lblPlayer4.Foreground = Brushes.Black;
             tbName4.IsEnabled = false;
             lblColorText4.Foreground = Brushes.Black;
-            lblColor4.IsEnabled = false;
+            if (lblColor4.Background != Brushes.Black)
+                lblColor4.Tag = lblColor4.Background.ToString();
+            lblColor4.IsEnabled = false;            
             lblColor4.Background = Brushes.Black;           
         }
 
@@ -85,27 +90,18 @@ namespace _4Game.Pages
             btn4Players.IsChecked = true;
 
             playerNumber = 4;
-            byte color = Convert.ToByte(lblColor3.Tag);
 
             lblPlayer3.Foreground = Brushes.Orange;
             tbName3.IsEnabled = true;
             lblColorText3.Foreground = Brushes.Orange;
             lblColor3.IsEnabled = true;
-            setColor(lblColor3);
+            setColorFromTag(lblColor3);
 
             lblPlayer4.Foreground = Brushes.Orange;
             tbName4.IsEnabled = true;
             lblColorText4.Foreground = Brushes.Orange;
-            color = Convert.ToByte(lblColor4.Tag);
             lblColor4.IsEnabled = true;
-            setColor(lblColor4);
-        }
-
-        private void setColor(Label lblColor)
-        {
-            byte color = Convert.ToByte(lblColor.Tag);
-            lblColor.Background = new SolidColorBrush(Color.FromArgb(ColorPalette.alpha, ColorPalette.colors[color, 0],
-                                                   ColorPalette.colors[color, 1], ColorPalette.colors[color, 2]));            
+            setColorFromTag(lblColor4);
         }
 
         private void setColor(Label lblColor, string color = "#FFDFD991")
@@ -113,11 +109,14 @@ namespace _4Game.Pages
             lblColor.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFDFD991"));
         }
 
-        public static void setColor(Label sender, Byte color)
+        private void setColorFromTag(Label lblColor)
         {
-            sender.Background = new SolidColorBrush(Color.FromArgb(ColorPalette.alpha, ColorPalette.colors[color, 0],
-                                                   ColorPalette.colors[color, 1], ColorPalette.colors[color, 2]));
-            sender.Tag = color.ToString();
+            lblColor.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(lblColor.Tag.ToString()));
+        }
+
+        public static void setColor(Label sender, Brush color)
+        {
+            sender.Background = color;
         }
 
         private void imgHunFlag_MouseUp(object sender, MouseButtonEventArgs e)
@@ -166,6 +165,25 @@ namespace _4Game.Pages
         {
             e.Handled = !Validators.isNumber(e.Text);
         }
+
+        private void tbTableSize_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            byte size = Convert.ToByte(tb.Text);
+
+            if (size < Constants.MINTABLESIZE)
+            {
+                WindowController.showNumberOutOfRangeWarning();
+                tb.Text = "2";
+            }
+
+            if (size > Constants.MAXTABLESIZE)
+            {
+                WindowController.showNumberOutOfRangeWarning();
+                tb.Text = "30";
+            }
+        }
+
         private void ColorPicker_Click(object sender, MouseButtonEventArgs e)
         {
             WindowController.showColorPicker(sender);
@@ -193,31 +211,13 @@ namespace _4Game.Pages
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowController.showSettings();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             WindowController.closePrimaryWindow();
             Application.Current.Shutdown();
-        }
-
-        private void tbTableSize_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox tb = (TextBox)sender;
-            byte size = Convert.ToByte(tb.Text);
-
-            if (size < Constants.MINTABLESIZE)
-            {
-                WindowController.showNumberOutOfRangeWarning();
-                tb.Text = "2";
-            }
-
-            if (size > Constants.MAXTABLESIZE)
-            {
-                WindowController.showNumberOutOfRangeWarning();
-                tb.Text = "30";
-            }
-        }
+        }        
     }
 }

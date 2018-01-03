@@ -34,6 +34,7 @@ xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="cancel">Mégsem</system:String>
     <system:String x:Key="diagonal">Átlós szomszédok</system:String>
     <system:String x:Key="maxvalue">Max mező kattintás</system:String>
+    <system:String x:Key="hidefieldnumbers">Mező számok elrejtése</system:String>
 
     <!--4game window-->
     <system:String x:Key="load">Betöltés</system:String>

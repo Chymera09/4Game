@@ -64,6 +64,9 @@
     <Compile Include="Pages\GameSurface.xaml.cs">
       <DependentUpon>GameSurface.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SettingSurface.xaml.cs">
+      <DependentUpon>SettingSurface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PrimaryWindow.xaml.cs">
       <DependentUpon>PrimaryWindow.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,7 @@
     <Compile Include="SecondaryWindow.xaml.cs">
       <DependentUpon>SecondaryWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Validators.cs" />
     <Compile Include="WarningSurfaces\NumberNotInRangeWarning.xaml.cs">
       <DependentUpon>NumberNotInRangeWarning.xaml</DependentUpon>
@@ -99,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\NewGameSurface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SettingSurface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -33,7 +33,8 @@
     <system:String x:Key="cancel">Cancel</system:String>
     <system:String x:Key="diagonal">Diagonal neighbours</system:String>
     <system:String x:Key="maxvalue">Max value button click</system:String>
-    
+    <system:String x:Key="hidefieldnumbers">Hide field numbers</system:String>
+       
     <!--4game window-->
     <system:String x:Key="load">Load</system:String>
     <system:String x:Key="save">Save</system:String>

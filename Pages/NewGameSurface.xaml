@@ -64,7 +64,7 @@
                 <Label Name="lblColorText1" Content="{DynamicResource color}" Height="25" Width="40" 
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-                <Label x:Name="lblColor1" Background="Yellow" Width="40" Height="10" Tag="1" MouseLeftButtonUp="ColorPicker_Click"/>
+                    <Label x:Name="lblColor1" Background="#39E600" Width="40" Height="10" Tag="1" MouseLeftButtonUp="ColorPicker_Click"/>
             </DockPanel>
 
             <Separator Height="5" Background="Transparent"/>
@@ -82,7 +82,7 @@
                 <Label Name="lblColorText2" Content="{DynamicResource color}" Height="25" Width="40" 
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-                <Label x:Name="lblColor2" Background="Yellow" Width="40" Height="10" Tag="2" MouseLeftButtonUp="ColorPicker_Click"/>
+                    <Label x:Name="lblColor2" Background="#FFEA00" Width="40" Height="10" Tag="2" MouseLeftButtonUp="ColorPicker_Click"/>
             </DockPanel>
 
             <Separator Height="5" Background="Transparent"/>
@@ -100,7 +100,7 @@
                 <Label Name="lblColorText3" Content="{DynamicResource color}" Height="25" Width="40" 
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-                <Label x:Name="lblColor3" Background="Yellow" Width="40" Height="10" Tag="3" MouseLeftButtonUp="ColorPicker_Click"/>
+                    <Label x:Name="lblColor3" Background="#1A1AFF" Width="40" Height="10" Tag="#1A1AFF" MouseLeftButtonUp="ColorPicker_Click"/>
             </DockPanel>
 
             <Separator Height="5" Background="Transparent"/>
@@ -118,7 +118,7 @@
                 <Label Name="lblColorText4" Content="{DynamicResource color}" Height="25" Width="40" 
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
-                <Label x:Name="lblColor4" Background="Yellow" Width="40" Height="10" Tag="4" MouseLeftButtonUp="ColorPicker_Click"/>
+                    <Label x:Name="lblColor4" Background="#FF0000" Width="40" Height="10" Tag="#FF0000" MouseLeftButtonUp="ColorPicker_Click"/>
             </DockPanel>
         </StackPanel>
 

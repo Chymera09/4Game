@@ -26,30 +26,42 @@ namespace _4Game
             primaryWindow.Content = new Pages.NewGameSurface();
         }
 
+        public static void setGameSurface()
+        {
+            primaryWindow.Content = new Pages.GameSurface();
+        }
+
         public static void showColorPicker(object sender)
         {
+            primaryWindow.IsEnabled = false;
             secondaryWindow = new SecondaryWindow();
             Pages.ColorPickerSurface colorPicker = new Pages.ColorPickerSurface(sender);
             secondaryWindow.Content = colorPicker;
-            secondaryWindow.ShowDialog();
+            secondaryWindow.ShowDialog();            
         }
 
         public static void showNumberOutOfRangeWarning()
         {
+            primaryWindow.IsEnabled = false;
             secondaryWindow = new SecondaryWindow();
             secondaryWindow.Content = new WarningSurfaces.NumberNotInRangeWarning();
+            secondaryWindow.ShowDialog();            
+        }
+
+        public static void showSettings()
+        {
+            primaryWindow.IsEnabled = false;
+            secondaryWindow = new SecondaryWindow();
+            secondaryWindow.Content = new Pages.SettingSurface();
             secondaryWindow.ShowDialog();
         }
 
         public static void closeSecondaryWindow()
         {
-            secondaryWindow.Close();
-            secondaryWindow = new SecondaryWindow();
+            primaryWindow.IsEnabled = true;
+            secondaryWindow.Close();           
         }
 
-        public static void setGameSurface()
-        {
-            primaryWindow.Content = new Pages.GameSurface();
-        }
+        
     }
 }

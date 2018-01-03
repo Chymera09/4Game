@@ -16,22 +16,28 @@ using System.Windows.Shapes;
 namespace _4Game.Pages
 {
     /// <summary>
-    /// Interaction logic for ColorPickerSurface.xaml
+    /// Interaction logic for SettingSurface.xaml
     /// </summary>
-    public partial class ColorPickerSurface : UserControl
+    public partial class SettingSurface : UserControl
     {
-        private Label sender;
-        public ColorPickerSurface(object sender)
+        public SettingSurface()
         {
             InitializeComponent();
-            this.sender = (Label)sender;
         }
 
-        private void Color_Click(object sender, RoutedEventArgs e)
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            Label label = (Label)sender;
-            NewGameSurface.setColor(this.sender, label.Background);
+            Settings.Diagonal = (bool)cbDiagonalClick.IsChecked;
+            Settings.MaxValueClick = (bool)cbMaxValueButtonClick.IsChecked;
+            Settings.HideFieldNumbers = (bool)cbHideFieldNumbers.IsChecked;
             WindowController.closeSecondaryWindow();
+        }
+
+        private void DefaultButton_Click(object sender, RoutedEventArgs e)
+        {
+            cbDiagonalClick.IsChecked = false;
+            cbMaxValueButtonClick.IsChecked = true;
+            cbHideFieldNumbers.IsChecked = false;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -35,7 +35,10 @@
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
         <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}"/>
         <Setter Property="BorderBrush" Value="{StaticResource OptionMark.Static.Border}"/>
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Foreground" Value="Orange"/>
+        <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -45,7 +48,7 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border x:Name="checkBoxBorder" BorderBrush="Orange" BorderThickness="2" Background="Transparent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.ColumnSpan="2" Width="14" Height="14">
+                        <Border x:Name="checkBoxBorder" BorderBrush="Orange" BorderThickness="2" Background="Transparent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,1,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.ColumnSpan="14" Width="14" Height="14">
                             <Grid x:Name="markGrid">
                                 <Path x:Name="optionMark" Data="M14.463721,2.3107533 L6.812535,17.185753 6.556378,17.185753 0,9.8095856 1.851128,6.6520056 6.16975,11.500179 12.0833,2.8822178E-05 14.463721,2.3107533 z" Fill="Orange" Margin="0,-6,-2.5,0" Opacity="0" Stretch="None"/>
                                 <Rectangle x:Name="indeterminateMark" Fill="Orange" Margin="2" Opacity="0"/>
