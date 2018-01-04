@@ -39,6 +39,11 @@ xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!--4game window-->
     <system:String x:Key="load">Betöltés</system:String>
     <system:String x:Key="save">Mentés</system:String>
+    <system:String x:Key="currentplayer">Jelenlegi játékos:</system:String>
+    <system:String x:Key="1player">1. játékos:</system:String>
+    <system:String x:Key="2player">2. játékos:</system:String>
+    <system:String x:Key="3player">3. játékos:</system:String>
+    <system:String x:Key="4player">4. játékos:</system:String>
 
     <!--ResultWindow-->
     <system:String x:Key="resultlist">Eredmény</system:String>

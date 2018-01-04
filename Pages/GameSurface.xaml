@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Canvas HorizontalAlignment="Left" Height="320" Width="320" VerticalAlignment="Top"  Margin="180,25,0,0" Background="Green"/>
+        <Canvas Name="canvasField" Height="320" Width="320"  Margin="180,25,0,0"/>
         <!--<Grid HorizontalAlignment="Left" Height="130" Margin="750,264,-290,-39" VerticalAlignment="Top" Width="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30*"/>
@@ -28,24 +28,39 @@
             <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="50" Margin="0,0,0,5"/>
         </Grid> -->
 
-        <StackPanel HorizontalAlignment="Left" Height="160" Margin="18,25,0,0" VerticalAlignment="Top" Width="148">
-                <Label Content="Jelenlegi játékos:" Height="25"/>
-                <Label Content="NÉV" Height="25"/>
+        <StackPanel HorizontalAlignment="Left" Height="160" Margin="18,25,0,0" VerticalAlignment="Top" Width="150">
+                <Label Content="{DynamicResource currentplayer}" Height="25"/>
+                <Label Name="lblCurrentPlayer" Height="25"/>
                 <Separator Height="10" Margin="0" Background="Transparent"/>
-                <Label Content="1. játékos: xxxx" Height="25"/>
-                <Label Content="Button" Height="25" />
-                <Label Content="Button" Height="25"/>
-                <Label Content="Button" Height="25"/>
-        </StackPanel>
+                <DockPanel>
+                    <Label Name="lblPlayer1" Content="{DynamicResource 1player}" Height="25" Width="75" HorizontalContentAlignment="Right"/>
+                    <Label Name="lblPlayer1Score" Height="25" Width="75" HorizontalContentAlignment="Left"/>
+                </DockPanel>
+
+                <DockPanel>
+                    <Label Name="lblPlayer2" Content="{DynamicResource 2player}" Height="25" Width="75" HorizontalContentAlignment="Right"/>
+                    <Label Name="lblPlayer2Score" Height="25" Width="75" HorizontalContentAlignment="Left"/>
+                </DockPanel>
+
+                <DockPanel>
+                    <Label Name="lblPlayer3" Content="{DynamicResource 3player}" Height="25" Width="75" HorizontalContentAlignment="Right"/>
+                    <Label Name="lblPlayer3Score" Height="25" Width="75" HorizontalContentAlignment="Left"/>
+                </DockPanel>
+
+                <DockPanel>
+                    <Label Name="lblPlayer4" Content="{DynamicResource 4player}" Height="25" Width="75" HorizontalContentAlignment="Right"/>
+                    <Label Name="lblPlayer4Score" Height="25" Width="75" HorizontalContentAlignment="Left"/>
+                </DockPanel>
+            </StackPanel>
 
         <StackPanel HorizontalAlignment="Left" Height="130" Margin="67,215,0,0" VerticalAlignment="Top" Width="50">
-            <Button Content="Button" Height="25"/>
+                <Button Name="btnNewGame" Content="{DynamicResource newgame}" Height="25" Width="50" Click="btnNewGame_Click"/>
                 <Separator Height="10" Margin="0" Background="Transparent"/>
-            <Button Content="Button" Height="25"/>
+                <Button Name="btnLoad" Content="{DynamicResource load}" Height="25" Width="50" Click="btnLoad_Click"/>
                 <Separator Height="10" Margin="0" Background="Transparent"/>
-            <Button Content="Button" Height="25"/>
+                <Button Name="btnSave" Content="{DynamicResource save}" Height="25" Width="50" Click="btnSave_Click"/>
                 <Separator Height="10" Margin="0" Background="Transparent"/>
-            <Button Content="Button" Height="25"/>
+                <Button Name="btnExit"  Content="{DynamicResource exit}" Height="25" Width="50" Click="btnExit_Click"/>
         </StackPanel>
         </Grid>
     </Viewbox>

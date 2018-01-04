@@ -18,6 +18,7 @@ namespace _4Game.Pages
     public partial class NewGameSurface : UserControl
     {        
         private byte playerNumber;
+        private Player player1, player2, player3, player4;
 
         public NewGameSurface()
         {
@@ -201,7 +202,36 @@ namespace _4Game.Pages
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            Settings.RowNumber = Convert.ToByte(tbRowNumber.Text);
+            Settings.ColumnNumber = Convert.ToByte(tbColumnNumber.Text);            
 
+            if(playerNumber == 2)
+            {
+                player1 = new Player(tbName1.Text, lblColor1.Background);
+                player2 = new Player(tbName2.Text, lblColor2.Background);
+                player3 = null;
+                player4 = null;
+               
+                WindowController.setGameSurface(player1, player2);
+            }
+
+            else if(playerNumber == 3)
+            {
+                player1 = new Player(tbName1.Text, lblColor1.Background);
+                player2 = new Player(tbName2.Text, lblColor2.Background);
+                player3 = new Player(tbName3.Text, lblColor3.Background);
+                player4 = null;
+                WindowController.setGameSurface(player1, player2, player3);
+            }
+
+            else if (playerNumber == 4)
+            {
+                player1 = new Player(tbName1.Text, lblColor1.Background);
+                player2 = new Player(tbName2.Text, lblColor2.Background);
+                player3 = new Player(tbName3.Text, lblColor3.Background);
+                player4 = new Player(tbName4.Text, lblColor4.Background);
+                WindowController.setGameSurface(player1, player2, player3, player4);
+            }
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)

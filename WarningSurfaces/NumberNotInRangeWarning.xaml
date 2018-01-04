@@ -12,7 +12,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="{DynamicResource numberoutofrange}" HorizontalContentAlignment="Center" Margin="10,10,10,0" VerticalContentAlignment="Center" Height="65" FontSize="20"/>
-        <Button Content="{DynamicResource ok}" HorizontalAlignment="Left" Margin="324,25,0,0" Grid.Row="1" VerticalAlignment="Top"
+        <Button Content="{DynamicResource ok}" HorizontalAlignment="Center" Margin="313,25,313,0" Grid.Row="1" VerticalAlignment="Top"
                 Width="139" Height="40" Click="Button_Click"/>
 
     </Grid>

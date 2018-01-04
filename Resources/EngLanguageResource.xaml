@@ -38,6 +38,11 @@
     <!--4game window-->
     <system:String x:Key="load">Load</system:String>
     <system:String x:Key="save">Save</system:String>
+    <system:String x:Key="currentplayer">Current player:</system:String>
+    <system:String x:Key="1player">1st Player:</system:String>
+    <system:String x:Key="2player">2nd Player:</system:String>
+    <system:String x:Key="3player">3rd Player:</system:String>
+    <system:String x:Key="4player">4th Player:</system:String>
 
     <!--ResultWindow-->
     <system:String x:Key="resultlist">Result</system:String>

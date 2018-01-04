@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace _4Game
 {
-    class Player
-    {
-        private string name;
-        private int score;
-        private byte color;
-
-        public Player(string name, byte color, int score = 0)
-        {
-            this.name = name;
-            this.score = score;
-            this.color = color;
-        }
-
+    public class Player
+    {        
         public string Name { get; }
 
         public int Score { get; set; }
 
-        public byte Color { get; }
+        public Brush Color { get; }
+
+        public Label scoreLabel { get; set; }
+
+        public Player(string name, Brush color, int score = 0)
+        {
+            Name = name;
+            Score = score;
+            Color = color;
+        }       
 
         public void addScore()
         {
-            score += Constants.MAXFIELDVALUE;
+            Score += Constants.MAXFIELDVALUE;
         }
     }
 }

@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ColorPalette.cs" />
+    <Compile Include="GameLogic.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Pages\ColorPickerSurface.xaml.cs">
       <DependentUpon>ColorPickerSurface.xaml</DependentUpon>
@@ -78,6 +79,9 @@
     <Compile Include="Validators.cs" />
     <Compile Include="WarningSurfaces\NumberNotInRangeWarning.xaml.cs">
       <DependentUpon>NumberNotInRangeWarning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarningSurfaces\SaveWarning.xaml.cs">
+      <DependentUpon>SaveWarning.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowController.cs" />
     <Page Include="MainWindow.xaml">
@@ -139,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WarningSurfaces\NumberNotInRangeWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarningSurfaces\SaveWarning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

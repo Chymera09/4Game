@@ -26,9 +26,17 @@ namespace _4Game
             primaryWindow.Content = new Pages.NewGameSurface();
         }
 
-        public static void setGameSurface()
+        public static void setGameSurface(Player p1, Player p2, Player p3 = null, Player p4 = null)
         {
-            primaryWindow.Content = new Pages.GameSurface();
+            if(p3 != null && p4 != null)
+                primaryWindow.Content = new Pages.GameSurface(p1, p2, p3, p4);
+
+            else if (p3 != null && p4 == null)
+                primaryWindow.Content = new Pages.GameSurface(p1, p2, p3);
+
+            else
+                primaryWindow.Content = new Pages.GameSurface(p1, p2);
+
         }
 
         public static void showColorPicker(object sender)

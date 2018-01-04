@@ -128,31 +128,32 @@
             <Label Content="{DynamicResource boardsize}" Height="25" Width="185" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
             <Separator Height="5" Margin="0" Background="Transparent"/>
 
-            <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
+                <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
 
-                <Label Content="{DynamicResource rownumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="{DynamicResource rownumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                <TextBox x:Name="tbColumnNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
+                    <TextBox x:Name="tbRowNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
                              PreviewTextInput="PreviewTextInput" GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp" LostFocus="tbTableSize_LostFocus"/>
 
-                <Separator Width="5" Margin="0" Background="Transparent"/>
+                    <Separator Width="5" Margin="0" Background="Transparent"/>
 
-                <Button Name="btnRandom1" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom1_Click"/>
-            </DockPanel>
+                    <Button Name="btnRandom2" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom2_Click"/>
+                </DockPanel>
 
-            <Separator Height="5" Margin="0" Background="Transparent"/>
+                <Separator Height="5" Margin="0" Background="Transparent"/>
 
-            <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
+                <DockPanel Grid.Column="5" HorizontalAlignment="Left" Height="25" LastChildFill="False" Width="180">
 
-                <Label Content="{DynamicResource rownumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="{DynamicResource columnnumber}" Height="25" Width="100" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                <TextBox x:Name="tbRowNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
+                    <TextBox x:Name="tbColumnNumber"  Text="10" MaxLength="2" MaxLines="1" Height="25" Width="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  
                              PreviewTextInput="PreviewTextInput" GotFocus="SelectAllText" PreviewMouseLeftButtonDown="SelecAllTextMouseButton" KeyUp="EnterKeyUp" LostFocus="tbTableSize_LostFocus"/>
 
-                <Separator Width="5" Margin="0" Background="Transparent"/>
+                    <Separator Width="5" Margin="0" Background="Transparent"/>
 
-                <Button Name="btnRandom2" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom2_Click"/>
-            </DockPanel>
+                    <Button Name="btnRandom1" Content="{DynamicResource random}" Height="25" Width="50" Click="btnRandom1_Click"/>
+                </DockPanel>
+                
         </StackPanel>
 
         <!--Control buttons-->
