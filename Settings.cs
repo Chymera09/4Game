@@ -12,7 +12,7 @@ namespace _4Game
 
         public static bool MaxValueClick { get; set; }
 
-        public static bool HideFieldNumbers { get; set; }
+        public static bool HiddenFieldNumbers { get; set; }
 
         public static byte ColumnNumber { get; set; }
 

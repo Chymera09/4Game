@@ -26,16 +26,42 @@ namespace _4Game.Pages
             this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
 
             btn2Players_Click(this, null);
-            //setColor(lblColor1);
-            //setColor(lblColor1, "#FFDFD991");
-            //setColor(lblColor2);
+            Settings.Diagonal = false;
+            Settings.MaxValueClick = true;
+            Settings.HiddenFieldNumbers = false;
         }
 
-        /* BETÖLTÉSHEZ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * public NewGameSurface()
+        
+         public NewGameSurface(byte playerNumber, List<Player> players)
          {
              InitializeComponent();
-         }*/
+            this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
+            //player1
+            tbName1.Text = players[0].Name;
+            lblColor1.Background = players[0].Color;
+
+            //player2
+            tbName2.Text = players[1].Name;
+            lblColor2.Background = players[1].Color;
+
+            //player3
+            tbName3.Text = players[2].Name;
+            lblColor3.Background = players[2].Color;
+
+            //player4
+            tbName4.Text = players[3].Name;
+            lblColor4.Background = players[3].Color;
+
+            if (playerNumber == 2)
+                btn2Players_Click(this, null);
+            else if(playerNumber == 3)
+                btn3Players_Click(this, null);
+            else
+                btn4Players_Click(this, null);
+
+            tbRowNumber.Text = Settings.RowNumber.ToString();
+            tbColumnNumber.Text = Settings.ColumnNumber.ToString();
+        }
 
         private void btn2Players_Click(object sender, RoutedEventArgs e)
         {
@@ -48,7 +74,7 @@ namespace _4Game.Pages
             tbName3.IsEnabled = false;
             lblColorText3.Foreground = Brushes.Black;
             if (lblColor3.Background != Brushes.Black)
-                lblColor3.Tag = lblColor3.Background.ToString();            
+                setTag(lblColor3, lblColor3.Background);
             lblColor3.Background = Brushes.Black;
             lblColor3.IsEnabled = false;
 
@@ -56,7 +82,7 @@ namespace _4Game.Pages
             tbName4.IsEnabled = false;
             lblColorText4.Foreground = Brushes.Black;
             if (lblColor4.Background != Brushes.Black)
-                lblColor4.Tag = lblColor4.Background.ToString();
+                setTag(lblColor4, lblColor4.Background);
             lblColor4.Background = Brushes.Black;
             lblColor4.IsEnabled = false;
         }
@@ -73,13 +99,15 @@ namespace _4Game.Pages
             tbName3.IsEnabled = true;
             lblColorText3.Foreground = Brushes.Orange;
             lblColor3.IsEnabled = true;
+            if (lblColor3.Background != Brushes.Black)
+                setTag(lblColor3, lblColor3.Background);
             setColorFromTag(lblColor3);
 
             lblPlayer4.Foreground = Brushes.Black;
             tbName4.IsEnabled = false;
             lblColorText4.Foreground = Brushes.Black;
             if (lblColor4.Background != Brushes.Black)
-                lblColor4.Tag = lblColor4.Background.ToString();
+                setTag(lblColor4, lblColor4.Background);
             lblColor4.IsEnabled = false;            
             lblColor4.Background = Brushes.Black;           
         }
@@ -96,12 +124,16 @@ namespace _4Game.Pages
             tbName3.IsEnabled = true;
             lblColorText3.Foreground = Brushes.Orange;
             lblColor3.IsEnabled = true;
+            if (lblColor3.Background != Brushes.Black)
+                setTag(lblColor3, lblColor3.Background);
             setColorFromTag(lblColor3);
 
             lblPlayer4.Foreground = Brushes.Orange;
             tbName4.IsEnabled = true;
             lblColorText4.Foreground = Brushes.Orange;
             lblColor4.IsEnabled = true;
+            if (lblColor4.Background != Brushes.Black)
+                setTag(lblColor4, lblColor4.Background);
             setColorFromTag(lblColor4);
         }
 
@@ -113,6 +145,11 @@ namespace _4Game.Pages
         private void setColorFromTag(Label lblColor)
         {
             lblColor.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(lblColor.Tag.ToString()));
+        }
+
+        private void setTag(Label label, Brush color)
+        {
+            label.Tag = color.ToString();
         }
 
         public static void setColor(Label sender, Brush color)
@@ -187,7 +224,7 @@ namespace _4Game.Pages
 
         private void ColorPicker_Click(object sender, MouseButtonEventArgs e)
         {
-            WindowController.showColorPicker(sender);
+            WindowController.showSecondaryWindow(new ColorPickerSurface(sender));
         }
 
         private void btnRandom1_Click(object sender, RoutedEventArgs e)
@@ -203,35 +240,41 @@ namespace _4Game.Pages
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             Settings.RowNumber = Convert.ToByte(tbRowNumber.Text);
-            Settings.ColumnNumber = Convert.ToByte(tbColumnNumber.Text);            
+            Settings.ColumnNumber = Convert.ToByte(tbColumnNumber.Text);
+            List<Player> playersList = new List<Player>();
 
-            if(playerNumber == 2)
+            player1 = new Player(tbName1.Text, lblColor1.Background);
+            player2 = new Player(tbName2.Text, lblColor2.Background);
+
+            if (playerNumber == 2)
             {
-                player1 = new Player(tbName1.Text, lblColor1.Background);
-                player2 = new Player(tbName2.Text, lblColor2.Background);
-                player3 = null;
-                player4 = null;
-               
+                
+                player3 = new Player(tbName3.Text, (Brush)new BrushConverter().ConvertFromString(lblColor3.Tag.ToString()));
+                player4 = new Player(tbName4.Text, (Brush)new BrushConverter().ConvertFromString(lblColor4.Tag.ToString()));
+
                 WindowController.setGameSurface(player1, player2);
             }
 
             else if(playerNumber == 3)
             {
-                player1 = new Player(tbName1.Text, lblColor1.Background);
-                player2 = new Player(tbName2.Text, lblColor2.Background);
                 player3 = new Player(tbName3.Text, lblColor3.Background);
-                player4 = null;
+                player4 = new Player(tbName4.Text, (Brush)new BrushConverter().ConvertFromString(lblColor4.Tag.ToString()));
                 WindowController.setGameSurface(player1, player2, player3);
             }
 
             else if (playerNumber == 4)
-            {
-                player1 = new Player(tbName1.Text, lblColor1.Background);
-                player2 = new Player(tbName2.Text, lblColor2.Background);
+            {              
                 player3 = new Player(tbName3.Text, lblColor3.Background);
                 player4 = new Player(tbName4.Text, lblColor4.Background);
                 WindowController.setGameSurface(player1, player2, player3, player4);
             }
+
+            playersList.Add(player1);
+            playersList.Add(player2);
+            playersList.Add(player3);
+            playersList.Add(player4);
+
+            Save.SaveEnviromentToDB(Globalization.getLanguage(), playerNumber, playersList);
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)

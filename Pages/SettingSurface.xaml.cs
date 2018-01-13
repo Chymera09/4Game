@@ -23,13 +23,16 @@ namespace _4Game.Pages
         public SettingSurface()
         {
             InitializeComponent();
+            cbDiagonalClick.IsChecked = Settings.Diagonal;
+            cbMaxValueButtonClick.IsChecked = Settings.MaxValueClick;
+            cbHiddenFieldNumbers.IsChecked = Settings.HiddenFieldNumbers;
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             Settings.Diagonal = (bool)cbDiagonalClick.IsChecked;
             Settings.MaxValueClick = (bool)cbMaxValueButtonClick.IsChecked;
-            Settings.HideFieldNumbers = (bool)cbHideFieldNumbers.IsChecked;
+            Settings.HiddenFieldNumbers = (bool)cbHiddenFieldNumbers.IsChecked;
             WindowController.closeSecondaryWindow();
         }
 
@@ -37,7 +40,7 @@ namespace _4Game.Pages
         {
             cbDiagonalClick.IsChecked = false;
             cbMaxValueButtonClick.IsChecked = true;
-            cbHideFieldNumbers.IsChecked = false;
+            cbHiddenFieldNumbers.IsChecked = false;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

@@ -20,9 +20,37 @@ namespace _4Game.WarningSurfaces
     /// </summary>
     public partial class SaveWarning : UserControl
     {
-        public SaveWarning()
+        Button sender;
+        public SaveWarning(object sender)
         {
             InitializeComponent();
+            this.sender = (Button)sender;
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNoSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.sender.Name == "btnNewGame")
+            {
+                WindowController.closeSecondaryWindow();
+                WindowController.setNewGameSurface();
+            }
+
+            else
+            {
+                WindowController.closeSecondaryWindow();
+                WindowController.closePrimaryWindow();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowController.closeSecondaryWindow();
+        }
+        
     }
 }

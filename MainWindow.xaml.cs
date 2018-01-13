@@ -24,7 +24,17 @@ namespace _4Game
         {
             InitializeComponent();
             WindowController.showPrimaryWindow();
-            WindowController.setNewGameSurface();
+            Load.LoadEnvironmentFromDB();
+            /*try
+            {
+                Load.LoadEnvironmentFromDB();
+                //Globalization.SetLanguage();
+            }
+            catch
+            {
+                WindowController.setNewGameSurface();
+            }*/
+
             //WindowController.setGameSurface();
             Close();
         }

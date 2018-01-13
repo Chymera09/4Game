@@ -33,7 +33,7 @@
     <system:String x:Key="cancel">Cancel</system:String>
     <system:String x:Key="diagonal">Diagonal neighbours</system:String>
     <system:String x:Key="maxvalue">Max value button click</system:String>
-    <system:String x:Key="hidefieldnumbers">Hide field numbers</system:String>
+    <system:String x:Key="hidefieldnumbers">Hidden field numbers</system:String>
        
     <!--4game window-->
     <system:String x:Key="load">Load</system:String>
@@ -45,14 +45,17 @@
     <system:String x:Key="4player">4th Player:</system:String>
 
     <!--ResultWindow-->
-    <system:String x:Key="resultlist">Result</system:String>
+    <system:String x:Key="winner">The winner:</system:String>
     <system:String x:Key="close">Close</system:String>
 
     <!--Number range error-->
     <system:String x:Key="numberoutofrange">Number out of the range! (2-30)</system:String>
     <system:String x:Key="ok">OK!</system:String>
 
-    <!--New game warning window-->
+    <!--Save warning-->
+    <system:String x:Key="savewarningtext">Unsaved games will be lost</system:String>
+    <system:String x:Key="dontsave">Don&apos;t save</system:String>
+    
     <!--<system:String x:Key="newgamewarning">If you start new game, the unsaved game will be lost.</system:String>
     <system:String x:Key="newgamewithoutsave">New game without save</system:String>
     <system:String x:Key="newgamewithsave">Save and new game</system:String>-->

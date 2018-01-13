@@ -18,7 +18,7 @@
 
                 <Separator Height="5" Background="Transparent"/>
 
-                <CheckBox x:Name="cbHideFieldNumbers" Content="{DynamicResource hidefieldnumbers}"
+                <CheckBox x:Name="cbHiddenFieldNumbers" Content="{DynamicResource hidefieldnumbers}"
                        Height="18" Width="150" Style="{DynamicResource CheckBoxStyle}"/>
             </StackPanel>
         </Viewbox>

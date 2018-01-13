@@ -11,9 +11,12 @@ namespace _4Game
     {
         private byte[,] fieldValue;
         private Brush[,] fieldColor;
+        byte rowNumber, columnNumber;
 
         public GameLogic(byte rowNumber, byte columnNumber)
         {
+            this.rowNumber = rowNumber;
+            this.columnNumber = columnNumber;
             fieldValue = new byte[rowNumber, columnNumber];
             fieldColor = new Brush[rowNumber, columnNumber];
             for (int i = 0; i < rowNumber; i++)
@@ -31,6 +34,34 @@ namespace _4Game
         public void setValue(byte rowNumber, byte columnNumber, byte value)
         {
             fieldValue[rowNumber, columnNumber] = value;
+        }
+
+        public int[,] getFieldValue()
+        {
+            int[,] field = new int[rowNumber, columnNumber];
+            for (byte i = 0; i < rowNumber; i++)
+            {
+                for (byte j = 0; j < columnNumber; j++)
+                {
+                    field[i, j] = getValue(i, j);
+                }
+            }
+
+            return field;
+        }
+
+        public string[,] getFieldColorAsString()
+        {
+            string[,] field = new string[rowNumber, columnNumber];
+            for (byte i = 0; i < rowNumber; i++)
+            {
+                for (byte j = 0; j < columnNumber; j++)
+                {
+                    field[i, j] = getColor(i, j).ToString();
+                }
+            }
+
+            return field;
         }
 
         //Szín lekérése

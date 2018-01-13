@@ -46,20 +46,18 @@ xmlns:system="clr-namespace:System;assembly=mscorlib">
     <system:String x:Key="4player">4. játékos:</system:String>
 
     <!--ResultWindow-->
-    <system:String x:Key="resultlist">Eredmény</system:String>
+    <system:String x:Key="winner">A győztes:</system:String>
     <system:String x:Key="close">Bezárás</system:String>
 
-    <!--Number range error-->
+    <!--Number range warning-->
     <system:String x:Key="numberoutofrange">A szám tartományon kivűl esik! (2-30)</system:String>
     <system:String x:Key="ok"> OK! </system:String>
     
-    <!--New game warning window--><!--
-    <system:String x:Key="newgamewarning">Új játék indítása esetén a mentetlen állás elveszik.</system:String>
-    <system:String x:Key="newgamewithoutsave">Új játék mentés nélkül</system:String>
-    <system:String x:Key="newgamewithsave">Mentés és új játék</system:String>
-    <system:String x:Key="cancel">Mégsem</system:String>
+    <!--Save warning-->
+    <system:String x:Key="savewarningtext">A mentetlen állás elveszik</system:String>
+    <system:String x:Key="dontsave">Nincs mentés</system:String>
 
-    --><!--Exit game warning window--><!--
+    <!--Exit game warning window--><!--
     <system:String x:Key="exitwarning">Kilépés esetén a mentetlen állás elveszik.</system:String>
     <system:String x:Key="exitwithoutsave">Kilépés mentés nélkül</system:String>
     <system:String x:Key="exitwithsave">Mentés és kilépés</system:String>-->

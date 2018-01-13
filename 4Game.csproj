@@ -34,7 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -58,20 +65,25 @@
     </ApplicationDefinition>
     <Compile Include="ColorPalette.cs" />
     <Compile Include="GameLogic.cs" />
-    <Compile Include="Language.cs" />
+    <Compile Include="Load.cs" />
     <Compile Include="Pages\ColorPickerSurface.xaml.cs">
       <DependentUpon>ColorPickerSurface.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\GameSurface.xaml.cs">
       <DependentUpon>GameSurface.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ResultSurface.xaml.cs">
+      <DependentUpon>ResultSurface.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SettingSurface.xaml.cs">
       <DependentUpon>SettingSurface.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimplePlayer.cs" />
     <Compile Include="PrimaryWindow.xaml.cs">
       <DependentUpon>PrimaryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Random.cs" />
+    <Compile Include="Save.cs" />
     <Compile Include="SecondaryWindow.xaml.cs">
       <DependentUpon>SecondaryWindow.xaml</DependentUpon>
     </Compile>
@@ -107,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\NewGameSurface.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ResultSurface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +189,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -185,6 +202,11 @@
     <Resource Include="Resources\engflag.jpg" />
     <Resource Include="Resources\hunflag.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{e85e7393-f712-4d27-8aa6-241cec6c22fd}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

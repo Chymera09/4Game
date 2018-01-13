@@ -23,7 +23,7 @@ namespace _4Game
             Name = name;
             Score = score;
             Color = color;
-        }       
+        }
 
         public void addScore()
         {

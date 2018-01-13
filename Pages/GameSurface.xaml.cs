@@ -52,10 +52,12 @@ namespace _4Game.Pages
 
             lblPlayer1.Foreground = players[0].Color;
             lblPlayer1Score.Foreground = players[0].Color;
+            lblPlayer1.Content = players[0].Name;
             lblPlayer1Score.Content = players[0].Score;
 
             lblPlayer2.Foreground = players[1].Color;
             lblPlayer2Score.Foreground = players[1].Color;
+            lblPlayer2.Content = players[1].Name;
             lblPlayer2Score.Content = players[1].Score;
 
             lblPlayer3.Foreground = Brushes.Black;
@@ -71,6 +73,7 @@ namespace _4Game.Pages
             players[2].scoreLabel = lblPlayer3Score;
             lblPlayer3.Foreground = players[2].Color;
             lblPlayer3Score.Foreground = players[2].Color;
+            lblPlayer3.Content = players[2].Name;
             lblPlayer3Score.Content = players[2].Score;
         }
 
@@ -80,6 +83,7 @@ namespace _4Game.Pages
             players[3].scoreLabel = lblPlayer4Score;
             lblPlayer4.Foreground = players[3].Color;
             lblPlayer4Score.Foreground = players[3].Color;
+            lblPlayer4.Content = players[3].Name;
             lblPlayer4Score.Content = players[3].Score;
         }
 
@@ -113,7 +117,7 @@ namespace _4Game.Pages
                     newBtn.FontSize = fontSize;
                     newBtn.Background = Brushes.White;
                     //newBtn.BorderBrush = Brushes.Orange;
-                    if (Settings.HideFieldNumbers)
+                    if (Settings.HiddenFieldNumbers)
                         newBtn.Foreground = Brushes.Transparent;
                     else newBtn.Foreground = Brushes.Black;
                     newBtn.Margin = new Thickness(left, top, 0, 0);
@@ -143,9 +147,7 @@ namespace _4Game.Pages
             else
                 fontSize = 7;
         }
-
-        
-
+     
         //Canvas-ban lévő gombra kattintás
         private void Canvas_Click(object sender, RoutedEventArgs e)
         {
@@ -163,16 +165,22 @@ namespace _4Game.Pages
 
             isSaved = false;
 
-
-            /*if (SumScore() == maxScore)
+            sumScore = 0;
+            foreach(var player in players)
             {
-                ResultWindow reswin = new ResultWindow(Player.getPlayersList(getPlayers()));
-                reswin.ShowDialog();
-                foreach (Button button in ButtonCanvas.Children)
-                {
+                sumScore += player.Score;
+            }
+
+            if (sumScore == maxScore)
+            {
+                WindowController.showSecondaryWindow(new Pages.ResultSurface(players));
+                
+                if(!Settings.MaxValueClick)
+                    foreach (Button button in canvasField.Children)
+                    {
                     button.Click -= new RoutedEventHandler(Canvas_Click);
-                }
-            }*/
+                    }
+            }
 
         }
 
@@ -203,6 +211,8 @@ namespace _4Game.Pages
         {
             if (isSaved)
                 WindowController.setNewGameSurface();
+            else
+                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender));
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
@@ -212,6 +222,7 @@ namespace _4Game.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            Save.SaveGameToDatabase(players, field, currentPlayerIndex);
             isSaved = true;
         }
 
@@ -221,6 +232,8 @@ namespace _4Game.Pages
             {
                 WindowController.closePrimaryWindow();
             }
+            else
+                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender));
         }   
     }
 }

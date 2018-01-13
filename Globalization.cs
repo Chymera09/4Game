@@ -7,9 +7,13 @@ using System.Windows;
 
 namespace _4Game
 {
+    public enum Language
+    {
+        HUN, ENG
+    }
     class Globalization
     {
-        public static Language currentLanguage = Language.HUN;
+        private static Language currentLanguage = Language.HUN;
         public static ResourceDictionary SetLanguage()
         {
             ResourceDictionary dictionary = new ResourceDictionary();
@@ -44,6 +48,23 @@ namespace _4Game
                     break;
             }
             return dictionary;
+        }
+
+        public static string getLanguage()
+        {
+            switch (currentLanguage)
+            {
+                case Language.ENG:
+                    return "ENG";
+                    break;
+
+                case Language.HUN:
+                    return "HUN";
+                    break;
+                default:
+                    return "HUN";
+                    break;
+            }
         }
     }
 }

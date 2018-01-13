@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Label Content="{DynamicResource numberoutofrange}" HorizontalContentAlignment="Center" Margin="10,10,10,0" VerticalContentAlignment="Center" Height="65" FontSize="20"/>
         <Button Content="{DynamicResource ok}" HorizontalAlignment="Center" Margin="313,25,313,0" Grid.Row="1" VerticalAlignment="Top"
-                Width="139" Height="40" Click="Button_Click"/>
+                Width="140" Height="40" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

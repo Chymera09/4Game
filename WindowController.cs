@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace _4Game
 {
@@ -26,6 +27,11 @@ namespace _4Game
             primaryWindow.Content = new Pages.NewGameSurface();
         }
 
+        public static void setNewGameSurface(byte playerNumber, List<Player> players)
+        {
+            primaryWindow.Content = new Pages.NewGameSurface(playerNumber, players);
+        }
+
         public static void setGameSurface(Player p1, Player p2, Player p3 = null, Player p4 = null)
         {
             if(p3 != null && p4 != null)
@@ -39,14 +45,22 @@ namespace _4Game
 
         }
 
-        public static void showColorPicker(object sender)
+        public static void showSecondaryWindow(UserControl userControl)
+        {
+            primaryWindow.IsEnabled = false;
+            secondaryWindow = new SecondaryWindow();
+            secondaryWindow.Content = userControl;
+            secondaryWindow.ShowDialog();
+        }
+
+        /*public static void showColorPicker(object sender)
         {
             primaryWindow.IsEnabled = false;
             secondaryWindow = new SecondaryWindow();
             Pages.ColorPickerSurface colorPicker = new Pages.ColorPickerSurface(sender);
             secondaryWindow.Content = colorPicker;
             secondaryWindow.ShowDialog();            
-        }
+        }*/
 
         public static void showNumberOutOfRangeWarning()
         {
