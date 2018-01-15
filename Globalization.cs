@@ -56,14 +56,14 @@ namespace _4Game
             {
                 case Language.ENG:
                     return "ENG";
-                    break;
+                    
 
                 case Language.HUN:
                     return "HUN";
-                    break;
+                    
                 default:
                     return "HUN";
-                    break;
+                   
             }
         }
     }

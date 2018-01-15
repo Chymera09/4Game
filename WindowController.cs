@@ -11,9 +11,15 @@ namespace _4Game
     {
         private static PrimaryWindow primaryWindow;
         private static SecondaryWindow secondaryWindow;
-        public static void showPrimaryWindow()
+        public static void createPrimaryWindow()
         {
             primaryWindow = new PrimaryWindow();
+            //primaryWindow.Show();
+            primaryWindow.Hide();
+        }
+
+        public static void showPrimaryWindow()
+        {
             primaryWindow.Show();
         }
 
@@ -22,17 +28,22 @@ namespace _4Game
             primaryWindow.Close();
         }
 
-        public static void setNewGameSurface()
+        public static void setPrimaryWindowContent(UserControl content)
+        {
+            primaryWindow.Content = content;
+        }
+
+        /*public static void setNewGameSurface()
         {
             primaryWindow.Content = new Pages.NewGameSurface();
-        }
+        }*/
 
-        public static void setNewGameSurface(byte playerNumber, List<Player> players)
+        /*public static void setNewGameSurface(byte playerNumber, List<Player> players)
         {
             primaryWindow.Content = new Pages.NewGameSurface(playerNumber, players);
-        }
+        }*/
 
-        public static void setGameSurface(Player p1, Player p2, Player p3 = null, Player p4 = null)
+        /*public static void setGameSurface(Player p1, Player p2, Player p3 = null, Player p4 = null)
         {
             if(p3 != null && p4 != null)
                 primaryWindow.Content = new Pages.GameSurface(p1, p2, p3, p4);
@@ -43,7 +54,12 @@ namespace _4Game
             else
                 primaryWindow.Content = new Pages.GameSurface(p1, p2);
 
-        }
+        }*/
+
+        /*public static void setGameSurface(List<Player> players, byte currentPlayer, GameLogic field)
+        {
+            primaryWindow.Content = new Pages.GameSurface(players, currentPlayer, field);
+        }*/
 
         public static void showSecondaryWindow(UserControl userControl)
         {
@@ -62,21 +78,21 @@ namespace _4Game
             secondaryWindow.ShowDialog();            
         }*/
 
-        public static void showNumberOutOfRangeWarning()
+        /*public static void showNumberOutOfRangeWarning()
         {
             primaryWindow.IsEnabled = false;
             secondaryWindow = new SecondaryWindow();
             secondaryWindow.Content = new WarningSurfaces.NumberNotInRangeWarning();
             secondaryWindow.ShowDialog();            
-        }
+        }*/
 
-        public static void showSettings()
+        /*public static void showSettings()
         {
             primaryWindow.IsEnabled = false;
             secondaryWindow = new SecondaryWindow();
             secondaryWindow.Content = new Pages.SettingSurface();
             secondaryWindow.ShowDialog();
-        }
+        }*/
 
         public static void closeSecondaryWindow()
         {

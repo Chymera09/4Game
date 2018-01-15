@@ -21,18 +21,26 @@ namespace _4Game.Pages
     public partial class ResultSurface : UserControl
     {
         private List<Player> players;
-        private StringBuilder result;
+        private StringBuilder result, winners;
         public ResultSurface(List<Player> players)
         {
             InitializeComponent();
-            this.players = players;            
-            result = new StringBuilder();
+            this.Resources.MergedDictionaries.Add(Globalization.SetLanguage());
+            this.players = players;                        
+            getWinners();
             getResult();
         }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-            WindowController.setNewGameSurface();
+            try
+            {
+                Load.LoadEnvironmentFromDB();
+            }
+            catch
+            {
+                WindowController.setPrimaryWindowContent(new Pages.NewGameSurface());                
+            }
             WindowController.closeSecondaryWindow();
         }
 
@@ -43,29 +51,26 @@ namespace _4Game.Pages
 
         private void getWinners()
         {
+            winners = new StringBuilder();
             players = players.OrderByDescending(x => x.Score).ToList();
 
             int i = 1;
-            result.Append(players[0].Name + ": " + players[0].Score);
+            winners.Append(players[0].Name + ": " + players[0].Score);
 
             while (players[i].Score == players[0].Score)
             {
-                result.Append("\n" + players[i].Name + ": " + players[i].Score);
+                winners.Append("\n" + players[i].Name + ": " + players[i].Score);
                 players.RemoveAt(i);
                 i++;
             }
             players.RemoveAt(0);
 
-            lblWinner.Content = result;
-            result.Clear();
+            lblWinner.Content = winners;
         }
-
-
 
         private void getResult()
         {
-            getWinners();
-
+            result = new StringBuilder();
             for (int i = 0; i < players.Count; i++)
             {
                 result.Append("\n" + players[i].Name + ": " + players[i].Score);

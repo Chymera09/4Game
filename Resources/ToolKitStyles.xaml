@@ -153,6 +153,28 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
+                        <Trigger Property="IsFocused"
+                                 Value="true">
+                            <Setter Property="Foreground"
+                                    Value="White" />
+                            <Setter Property="FontSize"
+                                    Value="11" />
+                            <Setter Property="Rectangle.Fill"
+                                    TargetName="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush>
+                                        <GradientBrush.GradientStops>
+                                            <GradientStopCollection>
+                                                <GradientStop Color="Red"
+                                                              Offset="0" />
+                                                <GradientStop Color="Black"
+                                                              Offset="1" />
+                                            </GradientStopCollection>
+                                        </GradientBrush.GradientStops>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
                         <Trigger Property="IsPressed"
                                  Value="true">
                             <Setter Property="Foreground"
@@ -274,7 +296,30 @@
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
-                        
+
+                        <Trigger Property="IsFocused"
+                                 Value="true">
+                            <Setter Property="Foreground"
+                                    Value="White" />
+                            <Setter Property="FontSize"
+                                    Value="11" />
+                            <Setter Property="Rectangle.Fill"
+                                    TargetName="Background">
+                                <Setter.Value>
+                                    <RadialGradientBrush>
+                                        <GradientBrush.GradientStops>
+                                            <GradientStopCollection>
+                                                <GradientStop Color="Red"
+                                                              Offset="0" />
+                                                <GradientStop Color="Black"
+                                                              Offset="1" />
+                                            </GradientStopCollection>
+                                        </GradientBrush.GradientStops>
+                                    </RadialGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+
                         <Trigger Property="IsPressed"
                                  Value="true">
                             <Setter Property="Foreground"

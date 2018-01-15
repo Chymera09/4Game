@@ -50,7 +50,7 @@ namespace _4Game.Pages
             players[1].scoreLabel = lblPlayer2Score;
             lblCurrentPlayer.Content = players[0].Name;
 
-            lblPlayer1.Foreground = players[0].Color;
+            lblPlayer1.Foreground = players[0].Color;           
             lblPlayer1Score.Foreground = players[0].Color;
             lblPlayer1.Content = players[0].Name;
             lblPlayer1Score.Content = players[0].Score;
@@ -85,6 +85,52 @@ namespace _4Game.Pages
             lblPlayer4Score.Foreground = players[3].Color;
             lblPlayer4.Content = players[3].Name;
             lblPlayer4Score.Content = players[3].Score;
+        }
+
+        public GameSurface(List<Player> playersList, byte currentPlayer, GameLogic field) : this()
+        {
+            players = playersList;
+            lblPlayer1.Content = players[0].Name;
+            players[0].scoreLabel = lblPlayer1Score;
+            lblPlayer1Score.Content = players[0].Score;
+            lblPlayer1.Foreground = players[0].Color;
+            lblPlayer1Score.Foreground = players[0].Color;
+
+            lblPlayer2.Content = players[1].Name;
+            players[1].scoreLabel = lblPlayer2Score;
+            lblPlayer2Score.Content = players[1].Score;
+            lblPlayer2.Foreground = players[1].Color;
+            lblPlayer2Score.Foreground = players[1].Color;
+
+            if (players.Count == 3)
+            {
+                lblPlayer3.Content = players[2].Name;
+                players[2].scoreLabel = lblPlayer3Score;
+                lblPlayer3Score.Content = players[2].Score;
+                lblPlayer3.Foreground = players[2].Color;
+                lblPlayer3Score.Foreground = players[2].Color;
+            }
+
+            else if(players.Count == 4)
+            {
+                lblPlayer3.Content = players[2].Name;
+                players[2].scoreLabel = lblPlayer3Score;
+                lblPlayer3Score.Content = players[2].Score;
+                lblPlayer3.Foreground = players[2].Color;
+                lblPlayer3Score.Foreground = players[2].Color;
+
+                lblPlayer4.Content = players[3].Name;
+                players[3].scoreLabel = lblPlayer4Score;
+                lblPlayer4Score.Content = players[3].Score;
+                lblPlayer4.Foreground = players[3].Color;
+                lblPlayer4Score.Foreground = players[3].Color;
+            }
+
+            currentPlayerIndex = currentPlayer;
+            lblCurrentPlayer.Content = this.players[currentPlayerIndex].Name;
+            this.field = field;
+            setTable();
+            checkSumScore();
         }
 
         //Tábla létrehozása gomb
@@ -165,23 +211,7 @@ namespace _4Game.Pages
 
             isSaved = false;
 
-            sumScore = 0;
-            foreach(var player in players)
-            {
-                sumScore += player.Score;
-            }
-
-            if (sumScore == maxScore)
-            {
-                WindowController.showSecondaryWindow(new Pages.ResultSurface(players));
-                
-                if(!Settings.MaxValueClick)
-                    foreach (Button button in canvasField.Children)
-                    {
-                    button.Click -= new RoutedEventHandler(Canvas_Click);
-                    }
-            }
-
+            checkSumScore();
         }
 
         private void setTable()
@@ -207,23 +237,67 @@ namespace _4Game.Pages
             y = Convert.ToByte(coordinates[1]);
         }
 
+        private void checkSumScore()
+        {
+            sumScore = 0;
+            foreach (var player in players)
+            {
+                sumScore += player.Score;
+            }
+
+            if (sumScore == maxScore)
+            {
+                WindowController.showSecondaryWindow(new Pages.ResultSurface(players));
+
+                if (!Settings.MaxValueClick)
+                    foreach (Button button in canvasField.Children)
+                    {
+                        button.Click -= new RoutedEventHandler(Canvas_Click);
+                    }
+            }
+
+        }
+
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             if (isSaved)
-                WindowController.setNewGameSurface();
+            {
+                try
+                {
+                    Load.LoadEnvironmentFromDB();
+                }
+                catch
+                {
+                    WindowController.setPrimaryWindowContent(new Pages.NewGameSurface());
+                }
+            }
             else
-                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender));
+                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender, players, (byte)currentPlayerIndex, field));
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                Load.LoadGameFromDB();
+            }
+            catch
+            {
+                WindowController.showSecondaryWindow(new WarningSurfaces.LoadFailedWarning());
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            Save.SaveGameToDatabase(players, field, currentPlayerIndex);
-            isSaved = true;
+            try
+            {
+                Save.SaveGameToDatabase(players, field, currentPlayerIndex);
+                isSaved = true;
+            }
+            catch
+            {
+                WindowController.showSecondaryWindow(new WarningSurfaces.SaveFailedWarning());
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -233,7 +307,7 @@ namespace _4Game.Pages
                 WindowController.closePrimaryWindow();
             }
             else
-                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender));
+                WindowController.showSecondaryWindow(new WarningSurfaces.SaveWarning(sender, players, (byte)currentPlayerIndex, field));
         }   
     }
 }

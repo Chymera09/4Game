@@ -9,7 +9,8 @@ namespace _4Game
     class SimplePlayer
     {
         public string Name { get; set; }
-        public string Color { get; set; }
+        public int Score { get; set; }
+        public string Color { get; set; }         
         public SimplePlayer() { }
     }
 }

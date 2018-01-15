@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ColorPalette.cs" />
+    <Compile Include="FieldData.cs" />
     <Compile Include="GameLogic.cs" />
     <Compile Include="Load.cs" />
     <Compile Include="Pages\ColorPickerSurface.xaml.cs">
@@ -89,8 +90,17 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Validators.cs" />
+    <Compile Include="WarningSurfaces\LoadFailedWarning.xaml.cs">
+      <DependentUpon>LoadFailedWarning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarningSurfaces\NumberNotInRangeWarning.xaml.cs">
       <DependentUpon>NumberNotInRangeWarning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarningSurfaces\SaveFailedContinueWarning.xaml.cs">
+      <DependentUpon>SaveFailedContinueWarning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarningSurfaces\SaveFailedWarning.xaml.cs">
+      <DependentUpon>SaveFailedWarning.xaml</DependentUpon>
     </Compile>
     <Compile Include="WarningSurfaces\SaveWarning.xaml.cs">
       <DependentUpon>SaveWarning.xaml</DependentUpon>
@@ -158,7 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WarningSurfaces\LoadFailedWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WarningSurfaces\NumberNotInRangeWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarningSurfaces\SaveFailedContinueWarning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarningSurfaces\SaveFailedWarning.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

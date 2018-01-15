@@ -10,11 +10,11 @@ namespace _4Game
 {
     public class Player
     {        
-        public string Name { get; }
+        public string Name { get; set; }
 
         public int Score { get; set; }
 
-        public Brush Color { get; }
+        public Brush Color { get; set; }
 
         public Label scoreLabel { get; set; }
 

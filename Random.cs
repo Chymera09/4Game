@@ -17,7 +17,7 @@ namespace _4Game
                 byte rnd = Convert.ToByte((client.DownloadString("https://www.random.org/integers/?num=1&min=2&max=30&col=1&base=10&format=plain&rnd=new")));
                 return rnd.ToString();            
             }
-            catch (Exception e)
+            catch
             {
                 System.Random rnd = new System.Random();
                 return (rnd.Next(2, 31)).ToString();

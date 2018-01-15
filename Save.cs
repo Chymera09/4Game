@@ -50,20 +50,41 @@ namespace _4Game
                     CurrentPlayer = currentPlayer,
                     Diagonal = Settings.Diagonal,
                     MaxValueClick = Settings.MaxValueClick,
-                    HiddenFieldNumbers = Settings.HiddenFieldNumbers
+                    HiddenFieldNumbers = Settings.HiddenFieldNumbers,
                 };
                 db.games.Add(game);
+                //db.SaveChanges();
 
                 for (int i = 0; i < players.Count; i++)
                 {
                     var player = new DAL.Models.Player
                     {
                         Name = players[i].Name,
-                        Color = players[i].Color.ToString(),
                         Score = players[i].Score,
+                        Color = players[i].Color.ToString(),
                         Game = game
                     };
                     db.players.Add(player);
+                }
+                //db.SaveChanges();
+
+                int row = Settings.RowNumber;
+                int column = Settings.ColumnNumber;
+
+                for (byte i = 0; i < row; i++)
+                {
+                    for (byte j = 0; j < column; j++)
+                    {
+                        var field = new DAL.Models.Field
+                        {
+                            Game = game,
+                            Row = i,
+                            Column = j,
+                            Value = table.getValue(i, j), 
+                            Color = table.getColor(i, j).ToString()
+                        };
+                        db.field.Add(field);                     
+                    }
                 }
                 db.SaveChanges();
             }

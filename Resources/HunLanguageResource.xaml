@@ -56,6 +56,9 @@ xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!--Save warning-->
     <system:String x:Key="savewarningtext">A mentetlen állás elveszik</system:String>
     <system:String x:Key="dontsave">Nincs mentés</system:String>
+    <system:String x:Key="savefailed">Mentés sikertelen!</system:String>
+    <system:String x:Key="loadfailed">Betöltés sikertelen!</system:String>
+    <system:String x:Key="continue">Folytatás</system:String>
 
     <!--Exit game warning window--><!--
     <system:String x:Key="exitwarning">Kilépés esetén a mentetlen állás elveszik.</system:String>

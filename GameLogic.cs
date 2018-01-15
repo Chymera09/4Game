@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace _4Game
 {    
-    class GameLogic
+    public class GameLogic
     {
         private byte[,] fieldValue;
         private Brush[,] fieldColor;
@@ -36,34 +36,6 @@ namespace _4Game
             fieldValue[rowNumber, columnNumber] = value;
         }
 
-        public int[,] getFieldValue()
-        {
-            int[,] field = new int[rowNumber, columnNumber];
-            for (byte i = 0; i < rowNumber; i++)
-            {
-                for (byte j = 0; j < columnNumber; j++)
-                {
-                    field[i, j] = getValue(i, j);
-                }
-            }
-
-            return field;
-        }
-
-        public string[,] getFieldColorAsString()
-        {
-            string[,] field = new string[rowNumber, columnNumber];
-            for (byte i = 0; i < rowNumber; i++)
-            {
-                for (byte j = 0; j < columnNumber; j++)
-                {
-                    field[i, j] = getColor(i, j).ToString();
-                }
-            }
-
-            return field;
-        }
-
         //Szín lekérése
         public Brush getColor(byte rowNumber, byte columnNumber)
         {
@@ -86,28 +58,28 @@ namespace _4Game
             {                
                 setFieldElement((byte)(rowNumber - 1), columnNumber, player);
             }
-            catch (Exception e) { };
+            catch { };
 
             //3;2
             try
             {
                 setFieldElement((byte)(rowNumber + 1), columnNumber, player);
             }
-            catch (Exception e) { };
+            catch { };
 
             //2;1
             try
             {
                 setFieldElement(rowNumber, (byte)(columnNumber - 1), player);
             }
-            catch (Exception e) { };
+            catch { };
 
             //2;3
             try
             {
                 setFieldElement(rowNumber, (byte)(columnNumber + 1), player);
             }
-            catch (Exception e) { };
+            catch { };
 
             if(Settings.Diagonal)
             {
@@ -116,28 +88,28 @@ namespace _4Game
                 {
                     setFieldElement((byte)(rowNumber - 1), (byte)(columnNumber - 1), player);
                 }
-                catch (Exception e) { };
+                catch { };
 
                 //3;1
                 try
                 {
                     setFieldElement((byte)(rowNumber + 1), (byte)(columnNumber - 1), player);
                 }
-                catch (Exception e) { };
+                catch { };
 
                 //1;3
                 try
                 {
                     setFieldElement((byte)(rowNumber - 1), (byte)(columnNumber + 1), player);
                 }
-                catch (Exception e) { };
+                catch { };
 
                 //3;3
                 try
                 {
                     setFieldElement((byte)(rowNumber + 1), (byte)(columnNumber + 1), player);
                 }
-                catch (Exception e) { };
+                catch { };
             }
         }
 

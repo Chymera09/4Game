@@ -1,0 +1,1 @@
+DAL is an other project insed the solution of 4Game

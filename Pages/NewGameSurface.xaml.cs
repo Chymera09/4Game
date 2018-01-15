@@ -30,8 +30,7 @@ namespace _4Game.Pages
             Settings.MaxValueClick = true;
             Settings.HiddenFieldNumbers = false;
         }
-
-        
+     
          public NewGameSurface(byte playerNumber, List<Player> players)
          {
              InitializeComponent();
@@ -211,13 +210,13 @@ namespace _4Game.Pages
 
             if (size < Constants.MINTABLESIZE)
             {
-                WindowController.showNumberOutOfRangeWarning();
+                WindowController.showSecondaryWindow(new WarningSurfaces.NumberNotInRangeWarning());
                 tb.Text = "2";
             }
 
             if (size > Constants.MAXTABLESIZE)
             {
-                WindowController.showNumberOutOfRangeWarning();
+                WindowController.showSecondaryWindow(new WarningSurfaces.NumberNotInRangeWarning());
                 tb.Text = "30";
             }
         }
@@ -252,21 +251,21 @@ namespace _4Game.Pages
                 player3 = new Player(tbName3.Text, (Brush)new BrushConverter().ConvertFromString(lblColor3.Tag.ToString()));
                 player4 = new Player(tbName4.Text, (Brush)new BrushConverter().ConvertFromString(lblColor4.Tag.ToString()));
 
-                WindowController.setGameSurface(player1, player2);
+                WindowController.setPrimaryWindowContent(new GameSurface(player1, player2));
             }
 
             else if(playerNumber == 3)
             {
                 player3 = new Player(tbName3.Text, lblColor3.Background);
                 player4 = new Player(tbName4.Text, (Brush)new BrushConverter().ConvertFromString(lblColor4.Tag.ToString()));
-                WindowController.setGameSurface(player1, player2, player3);
+                WindowController.setPrimaryWindowContent(new GameSurface(player1, player2, player3));
             }
 
             else if (playerNumber == 4)
             {              
                 player3 = new Player(tbName3.Text, lblColor3.Background);
                 player4 = new Player(tbName4.Text, lblColor4.Background);
-                WindowController.setGameSurface(player1, player2, player3, player4);
+                WindowController.setPrimaryWindowContent(new GameSurface(player1, player2, player3, player4));
             }
 
             playersList.Add(player1);
@@ -278,13 +277,20 @@ namespace _4Game.Pages
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-
+        {     
+            try
+            {
+                Load.LoadGameFromDB();               
+            }
+            catch
+            {
+                WindowController.showSecondaryWindow(new WarningSurfaces.LoadFailedWarning());
+            }
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            WindowController.showSettings();
+            WindowController.showSecondaryWindow(new Pages.SettingSurface());
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

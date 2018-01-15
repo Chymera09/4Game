@@ -1,0 +1,8 @@
+A játékot egy n×n-es
+táblán játsszák, amelynek mezoi 0 és 4 közötti értékeket tartalmaznak. Kezdetben minden
+mezon a 0 érték van. Ha a soron következo játékos a tábla egy tetszoleges mezojére mutat,
+akkor az adott mezon és a szomszédos négy mezon az aktuális érték eggyel no felfelé, ha az
+még kisebb, mint 4. Aki a lépésével egy, vagy több mezo értékét 4-re állítja, annyi pontot kap,
+ahány mezovel ezt megtette. A játékosok pontjait folyamatosan számoljuk, és a játékmezon
+eltéro színnel jelezzük, hogy azt melyik játékos billentette 4-esre. A játék akkor ér véget,
+amikor minden mezo értéke 4-et mutat. Az nyer, akinek ekkor több pontja van.

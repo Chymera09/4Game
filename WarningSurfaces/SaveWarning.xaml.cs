@@ -21,15 +21,49 @@ namespace _4Game.WarningSurfaces
     public partial class SaveWarning : UserControl
     {
         Button sender;
-        public SaveWarning(object sender)
+        List<Player> players;
+        byte currentPlayer;
+        GameLogic field;
+        public SaveWarning(object sender, List<Player> players, byte currentPlayer, GameLogic field)
         {
             InitializeComponent();
             this.sender = (Button)sender;
+            this.players = players;
+            this.currentPlayer = currentPlayer;
+            this.field = field;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (this.sender.Name == "btnNewGame")
+            {
+                try
+                {
+                    Save.SaveGameToDatabase(players, field, currentPlayer);
+                    WindowController.closeSecondaryWindow();
+                    Load.LoadEnvironmentFromDB();
+                }
+                catch
+                {
+                    WindowController.closeSecondaryWindow();
+                    WindowController.showSecondaryWindow(new WarningSurfaces.SaveFailedContinueWarning(this.sender));
+                }                
+            }
 
+            else
+            {
+                try
+                {
+                    Save.SaveGameToDatabase(players, field, currentPlayer);
+                    WindowController.closeSecondaryWindow();
+                    WindowController.closePrimaryWindow();
+                }
+                catch
+                {
+                    WindowController.closeSecondaryWindow();
+                    WindowController.showSecondaryWindow(new WarningSurfaces.SaveFailedContinueWarning(this.sender));
+                }                
+            }
         }
 
         private void btnNoSave_Click(object sender, RoutedEventArgs e)
@@ -37,7 +71,7 @@ namespace _4Game.WarningSurfaces
             if(this.sender.Name == "btnNewGame")
             {
                 WindowController.closeSecondaryWindow();
-                WindowController.setNewGameSurface();
+                WindowController.setPrimaryWindowContent(new Pages.NewGameSurface());
             }
 
             else

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_4Game"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="350" MinWidth="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Title="MainWindow" MinHeight="350" MinWidth="400" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Height="424.363">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,7 +13,13 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
-        
-    </Grid>
+    <Viewbox>
+        <Grid MinHeight=" 350" MinWidth="400">
+            <Label Content="4Game" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="66" Width="660" FontSize="55"/>
+            <Label Content="Welcome" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top" Height="68" Width="670" FontSize="35"/>
+            <Label Content="Loading..." Margin="10,170,0,0" VerticalAlignment="Top" Height="65" HorizontalAlignment="Left" Width="660" FontSize="25"/>
+            <Label Content="Developed by Tibor Pinter" HorizontalAlignment="Left" Margin="221,240,0,0" VerticalAlignment="Top" Height="40" Width="241"/>
+
+        </Grid>
+    </Viewbox>
 </Window>
